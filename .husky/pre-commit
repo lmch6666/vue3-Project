@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+#!可以配置执行脚本 test -> xxx
+npm test
