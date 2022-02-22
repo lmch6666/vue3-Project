@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang='ts'>
+  // console.log(instance)
 </script>
 
 <style>

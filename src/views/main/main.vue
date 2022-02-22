@@ -3,15 +3,14 @@
     主页
     {{ $store.state.pro }}
      <el-button :plain="true" @click="open">Show message</el-button>
-  <el-button :plain="true" @click="openVn">VNode</el-button>
+     <el-button :plain="true" @click="openVn">VNode</el-button>
   </div>
 </template>
  
  <script setup lang='ts'>
  import { h } from 'vue'
  import { ElMessage } from 'element-plus'
-
-const open = () => {
+  const open = () => {
   ElMessage('this is a message.')
 }
 const openVn = () => {
@@ -22,6 +21,7 @@ const openVn = () => {
     ]),
   })
 }
+  
 </script>
  
  <style>
