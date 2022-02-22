@@ -18,6 +18,16 @@ https://mp.weixin.qq.com/s?src=11&timestamp=1645453513&ver=3634&signature=ql668U
 此时，提交commit过程如下：
 
 git add .
-git cz或cz  不需要使用git commit 了
+npx cz  不需要使用git commit 了
 
+提交检查  不符合规范限制提交
+npm i  @commitlint/config-conventional   @commitlint/cli -D
+在根目录穿件commitlint.config.js文件 配置commitlint
+module.exports = {
+    extends:['@commitlint/config-conventional']
+}
+使用 husky 生成commit-msg文件  验证提交信息
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'
 
+// 按需引入插件   babel-plugin-import 
+npm i babel-plugin-import  -D  or npm install -D unplugin-vue-components unplugin-auto-import官网推荐
