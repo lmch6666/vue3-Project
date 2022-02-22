@@ -5,8 +5,11 @@ import Store from './store/index'
 // import 'element-plus/theme-chalk/base.css'
 import 'element-plus/dist/index.css'
 import registerComponents from './global/registerComponents'
-import {zxcvzx} from './service/asd'
+import {instance} from './service/index'
 
-zxcvzx(12312)
+instance.request({
+  url: '/data',
+  method: 'get'
+})
 
 createApp(App).use(Router).use(Store).use(registerComponents).mount('#app')

@@ -1,9 +1,8 @@
 import AxRequest from "./sealaxios"
 
 
-const BASE_URL = 'http://localhost:88'
+const BASE_URL = 'http://localhost:5000'
 const TIME_OUT = 5000
-
 
 const instance = new AxRequest({
     baseURL: BASE_URL,
