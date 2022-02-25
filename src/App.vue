@@ -5,22 +5,22 @@
 </script>
 
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <router-link to="/main">go main</router-link>
-    <router-link to="/login">go login</router-link>
+  <div class="app">
     <router-view></router-view>
   </div>
-  
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    height: 100%;
+  }
+
+  .app {
+    height: 100vh;
+  }
 </style>

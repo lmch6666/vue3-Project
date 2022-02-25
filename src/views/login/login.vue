@@ -1,20 +1,20 @@
 <template>
-  <div>
-    哦也
-    <el-card>
-      <template #header>
-        <div class="card-header">
-          <span>Card name</span>
-          <el-button class="button" type="text">Operation button</el-button>
-        </div>
-      </template>
-    </el-card>
+  <div class='login'>
+    <Panel></Panel> 
   </div>
 </template>
 
 <script setup lang='ts'>
-  // console.log(instance)
+import Panel from './panel.vue'
 </script>
 
 <style>
+  .login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    transform:  translateY(-20%);
+  }
 </style>
