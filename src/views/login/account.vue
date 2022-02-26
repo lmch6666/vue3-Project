@@ -5,7 +5,7 @@
                 <el-input v-model='accountData.account'></el-input>
             </el-form-item>
             <el-form-item label="密码" prop='password'>
-                <el-input v-model='accountData.password'></el-input>
+                <el-input type="password" v-model='accountData.password'></el-input>
             </el-form-item>
         </el-form>
     </div>
@@ -13,9 +13,10 @@
 <script setup lang="ts">
     import { reactive, ref } from 'vue';
     import type { ElForm } from 'element-plus';
-    const form = ref(null)
+    import {useStore} from 'vuex'
+    const store = useStore()
+    const form = ref<InstanceType<typeof ElForm>>();
     const Refdata = ref()
-    type FormInstance = InstanceType<typeof ElForm>
     const accountData = reactive({
         account: '',
         password: ''
@@ -35,24 +36,30 @@
         ]
     })
 
-        function formValidata(ruleForm){
-            ruleForm.validate((validate) => {
-                if(validate){
-                    return true
-                } else {
-                    return false
-                }
+    function formValidata(){
+        form.value?.validate((validate) => {
+            if(validate){
+                login()
+                return true
+            } else {
+                loginFail()
+                return false
+            }
         })
     }
         function login() {
-            formValidata(form)
+            store.dispatch('login/AccountLoginAciton', accountData)
         }
+
+        function  loginFail(){
+            console.log('登陆失败');
+        }
+        
             // 自定义组件必须使用defineexpose方法来暴露组件内部的变量和方法
             // defineExpose(login)
         defineExpose({
-            Refdata,
-            login,
-            formValidata
+            formValidata,
+            accountData
         })
 </script>
 <style>
