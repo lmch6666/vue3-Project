@@ -1,5 +1,7 @@
-import { createStore } from "vuex";
+import { createStore, useStore as useVuexStore, Store } from "vuex";
 import loginModule from "./login/login";
+import { getLocalStorage } from '../utils/cache'
+import {Module} from './login/type'
 const store = createStore({
     state:{
         pro: '21312'
@@ -9,5 +11,14 @@ const store = createStore({
     }
 })
 
+export function initStoreData(){
+    if(getLocalStorage("token")){
+        store.dispatch("login/initData")
+    }
+}
+
+export function useStore():Store<Module> {
+    return useVuexStore()
+}
 
 export default store

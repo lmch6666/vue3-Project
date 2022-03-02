@@ -5,29 +5,13 @@ import Store from './store/index'
 import './style/normalize.css'
 import 'element-plus/dist/index.css'
 import registerComponents from './global/registerComponents'
-import {instance} from './service/index'
-import type { DataType } from './service/type'
-
-
-// instance.request<DataType>({
-//   url: '/profile',
-//   method: 'get',
-//   showLoading:false
-// }).then((value) => {
-//   console.log(value);
-// })
-
-
-// instance.get({
-//   url: '/posts',
-//   method: 'get',
-//   showLoading:false
-// }).then((value) => {
-//   console.log(value);
-// })
-
+import { initStoreData } from './store/index'
 
 
 createApp(App).use(Router).use(Store).use(registerComponents).mount('#app')
+
+initStoreData()
+
+
 
 

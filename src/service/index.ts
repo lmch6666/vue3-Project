@@ -1,8 +1,6 @@
 import AxRequest from "./sealaxios"
 
 
-
-
 const instance = new AxRequest({
     interceptors: {
         requestInterceptors(config){

@@ -41,11 +41,11 @@ let account = ref<InstanceType<typeof Account>>();
 let phone = ref<InstanceType<typeof Phone>>();
 const submit = () => {
   if (tabName.value == "account") {
-    let issuccess = account.value.formValidata();
+    account.value.formValidata();
     if (isRemember) {
       setLocalStorage(
         account.value.accountData.account,
-        account.value.accountData
+        account.value.accountData.password
       );
     } else {
       removeLocalStorage(account.value.accountData.account);
@@ -62,7 +62,7 @@ function changeName(element: any) {
   } else if (name == "phone") {
     tabName.value = "phone";
   } else {
-    return;
+    return ;
   }
 }
 </script>

@@ -7,11 +7,10 @@ export function setLocalStorage(key:string, value:any){
 
 export function getLocalStorage(key:string){
   const value  = window.localStorage.getItem(key);
-
   if(value){
     return JSON.parse(value)
   } else {
-      return 'no data'
+      return null 
   }
 }
 

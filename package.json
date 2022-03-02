@@ -11,8 +11,10 @@
     "start": "json-server --watch --port 5000 data.json"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^1.0.0",
     "axios": "^0.26.0",
     "element-plus": "^2.0.2",
+    "esbuild-windows-64": "^0.14.23",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"

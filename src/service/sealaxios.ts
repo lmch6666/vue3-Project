@@ -4,7 +4,8 @@ import type { sealInterceptors, AddAxiosConfig, DataType } from './type'
 import { ElLoading } from 'element-plus'
 
 let text = ''
-const BASE_URL = 'http://localhost:5000'
+const BASE_URL = 'http://127.0.0.1:4523/mock/674014'
+
 const TIME_OUT = 5000
 const baseConfig = {
     baseURL: BASE_URL,
@@ -18,7 +19,7 @@ class AxRequest {
     text?: string = '正在请求中。。。'
     showLoading: boolean
     constructor(config: AddAxiosConfig) {
-        this.showLoading = true
+        this.showLoading = false
         text = config.text ?? '正在请求中。。。'
         this.instance = axios.create(Object.assign(baseConfig, config))
         this.interceptors = config.interceptors
@@ -59,7 +60,7 @@ class AxRequest {
     }
 
     request<T>(config?: AddAxiosConfig<T>): Promise<T> {
-        this.showLoading = config?.showLoading ?? true
+        this.showLoading = config?.showLoading ?? false
         // 封装请求上的拦截器
         if (config?.interceptors?.requestInterceptors) {
             config = config.interceptors.requestInterceptors(config)
@@ -76,20 +77,20 @@ class AxRequest {
         })
     }
 
-    get<T>(config?: AddAxiosConfig) {
-        return this.request({ ...config, method: 'GET' })
+    get<T = any>(config?: AddAxiosConfig<T>) {
+        return this.request<T>({ ...config, method: 'GET' })
     }
 
-    post<T>(config?: AddAxiosConfig) {
-        return this.request({ ...config, method: 'POST' })
+    post<T = any>(config?: AddAxiosConfig<T>) {
+        return this.request<T>({ ...config, method: 'POST' })
     }
 
-    delete<T>(config?: AddAxiosConfig) {
-        return this.request({ ...config, method: 'DELETE' })
+    delete<T = any>(config?: AddAxiosConfig<T>) {
+        return this.request<T>({ ...config, method: 'DELETE' })
     }
 
-    patch<T>(config?: AddAxiosConfig) {
-        return this.request({ ...config, method: 'PATCH' })
+    patch<T = any>(config?: AddAxiosConfig<T>) {
+        return this.request<T>({ ...config, method: 'PATCH' })
     }
 
 }

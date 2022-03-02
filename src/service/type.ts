@@ -16,6 +16,6 @@ export interface AddAxiosConfig<T = AxiosResponse> extends AxiosRequestConfig {
 
 export interface DataType {
     data: any
-    returnCode: string
+    code: string
     success:boolean
 }
