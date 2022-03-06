@@ -18,101 +18,242 @@
   },
   "getRole":[
     {
-      "name": "系统总览",
-      "id":38,
-      "type": 1,
-      "url": "/main/analysis",
-      "icon": "Setting",
-      "children": [
+      "id": 1,
+      "role": [
         {
-          "children": null,
-          "name": "核心技术",
-          "id":83,
-          "parentId": 38,
-          "sort":106,
-          "type": 2,
-          "url":"/main/analysis/overview"
+          "name": "系统总览",
+          "id":38,
+          "type": 1,
+          "url": "/main/analysis",
+          "icon": "Setting",
+          "children": [
+            {
+              "children": null,
+              "name": "核心技术",
+              "id":83,
+              "parentId": 38,
+              "sort":106,
+              "type": 2,
+              "url":"/main/analysis/dashboard"
+            },
+            {
+              "children": null,
+              "name": "商品统计",
+              "id":84,
+              "parentId": 38,
+              "sort":107,
+              "type": 2,
+              "url":"/main/analysis/overview"
+            }
+          ]
         },
         {
-          "children": null,
-          "name": "商品统计",
-          "id":84,
-          "parentId": 38,
-          "sort":107,
-          "type": 2,
-          "url":"/main/analysis/total"
+          "name": "系统管理",
+          "id":10,
+          "type": 1,
+          "url": "/main/system",
+          "icon": "Management",
+          "children": [
+            {
+              "children": null,
+              "name": "用户管理",
+              "id":84,
+              "parentId": 10,
+              "sort":108,
+              "type": 2,
+              "url":"/main/system/user"
+            },
+            {
+              "children": null,
+              "name": "部门管理",
+              "id":85,
+              "parentId": 10,
+              "sort":109,
+              "type": 2,
+              "url":"/main/system/department"
+            },
+            {
+              "children": null,
+              "name": "菜单管理",
+              "id":86,
+              "parentId": 10,
+              "sort":110,
+              "type": 2,
+              "url":"/main/system/menu"
+            },
+            {
+              "children": null,
+              "name": "角色管理",
+              "id":87,
+              "parentId": 10,
+              "sort":111,
+              "type": 2,
+              "url":"/main/system/role"
+            }
+          ]
+        },
+        {
+          "name": "商品中心",
+          "id":9,
+          "type": 1,
+          "url": "/main/product",
+          "icon": "Shop", 
+          "children": [
+            {
+              "children": null,
+              "name": "商品类别",
+              "id":88,
+              "parentId": 9,
+              "sort":112,
+              "type": 2,
+              "url":"/main/product/category"
+            },
+            {
+              "children": null,
+              "name": "商品信息",
+              "id":88,
+              "parentId": 9,
+              "sort":113,
+              "type": 2,
+              "url":"/main/product/information"
+            }
+          ]
         }
       ]
     },
     {
-      "name": "系统管理",
-      "id":10,
-      "type": 1,
-      "url": "/main/system",
-      "icon": "Management",
-      "children": [
+      "id" : 2,
+      "role": [
         {
-          "children": null,
-          "name": "用户管理",
-          "id":84,
-          "parentId": 10,
-          "sort":108,
-          "type": 2,
-          "url":"/main/system/user"
+          "name": "系统总览",
+          "id":38,
+          "type": 1,
+          "url": "/main/analysis",
+          "icon": "Setting",
+          "children": [
+            {
+              "children": null,
+              "name": "核心技术",
+              "id":83,
+              "parentId": 38,
+              "sort":106,
+              "type": 2,
+              "url":"/main/analysis/dashboard"
+            },
+            {
+              "children": null,
+              "name": "商品统计",
+              "id":84,
+              "parentId": 38,
+              "sort":107,
+              "type": 2,
+              "url":"/main/analysis/overview"
+            }
+          ]
         },
         {
-          "children": null,
-          "name": "部门管理",
-          "id":85,
-          "parentId": 10,
-          "sort":109,
-          "type": 2,
-          "url":"/main/system/department"
-        },
-        {
-          "children": null,
-          "name": "菜单管理",
-          "id":86,
-          "parentId": 10,
-          "sort":110,
-          "type": 2,
-          "url":"/main/system/menu"
-        },
-        {
-          "children": null,
-          "name": "角色管理",
-          "id":87,
-          "parentId": 10,
-          "sort":111,
-          "type": 2,
-          "url":"/main/system/role"
+          "name": "系统管理",
+          "id":10,
+          "type": 1,
+          "url": "/main/system",
+          "icon": "Management",
+          "children": [
+            {
+              "children": null,
+              "name": "用户管理",
+              "id":84,
+              "parentId": 10,
+              "sort":108,
+              "type": 2,
+              "url":"/main/system/user"
+            },
+            {
+              "children": null,
+              "name": "部门管理",
+              "id":85,
+              "parentId": 10,
+              "sort":109,
+              "type": 2,
+              "url":"/main/system/department"
+            },
+            {
+              "children": null,
+              "name": "菜单管理",
+              "id":86,
+              "parentId": 10,
+              "sort":110,
+              "type": 2,
+              "url":"/main/system/menu"
+            },
+            {
+              "children": null,
+              "name": "角色管理",
+              "id":87,
+              "parentId": 10,
+              "sort":111,
+              "type": 2,
+              "url":"/main/system/role"
+            }
+          ]
         }
       ]
     },
     {
-      "name": "商品中心",
-      "id":9,
-      "type": 1,
-      "url": "/main/product",
-      "icon": "Shop", 
-      "children": [
+      "id": 3,
+      "role": [
         {
-          "children": null,
-          "name": "商品类别",
-          "id":88,
-          "parentId": 9,
-          "sort":112,
-          "type": 2,
-          "url":"/main/product/part"
+          "name": "系统总览",
+          "id":38,
+          "type": 1,
+          "url": "/main/analysis",
+          "icon": "Setting",
+          "children": [
+            {
+              "children": null,
+              "name": "核心技术",
+              "id":83,
+              "parentId": 38,
+              "sort":106,
+              "type": 2,
+              "url":"/main/analysis/dashboard"
+            },
+            {
+              "children": null,
+              "name": "商品统计",
+              "id":84,
+              "parentId": 38,
+              "sort":107,
+              "type": 2,
+              "url":"/main/analysis/overview"
+            }
+          ]
         },
         {
-          "children": null,
-          "name": "商品信息",
-          "id":88,
-          "parentId": 9,
-          "sort":112,
-          "type": 2,
-          "url":"/main/product/information"
+          "name": "商品中心",
+          "id":9,
+          "type": 1,
+          "url": "/main/product",
+          "icon": "Shop", 
+          "children": [
+            {
+              "children": null,
+              "name": "商品类别",
+              "id":88,
+              "parentId": 9,
+              "sort":112,
+              "type": 2,
+              "url":"/main/product/category"
+            },
+            {
+              "children": null,
+              "name": "商品信息",
+              "id":88,
+              "parentId": 9,
+              "sort":113,
+              "type": 2,
+              "url":"/main/product/information"
+            }
+          ]
         }
       ]
     }

@@ -10,8 +10,5 @@ import { initStoreData } from './store/index'
 
 createApp(App).use(Router).use(Store).use(registerComponents).mount('#app')
 
-initStoreData()
-
-
-
+initStoreData();
 

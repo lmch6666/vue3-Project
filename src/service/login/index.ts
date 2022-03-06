@@ -1,6 +1,6 @@
 import AxRequest from "../sealaxios"
 import type { Ref } from "vue"
-import {resultType,loginResult,userinfo, role} from '../../store/login/type'
+import {resultType,loginResult,userinfo, roleResult} from '../../store/login/type'
 
 enum URL  {
     login = '/login',
@@ -57,9 +57,9 @@ export function getUserInof(id:string) {
     })
 }
 
-export function getUserRouter(type:string){
-    return getRole.get<role>({
-        url:`${URL.getRole}?type=${type}`,
+export function getUserRouter(id:string){
+    return getRole.get<roleResult>({
+        url:`${URL.getRole}?id=${id}`,
     })
 }
 

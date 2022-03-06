@@ -1,0 +1,1 @@
+export {default as Mform} from './form/form.vue'

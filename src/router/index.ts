@@ -10,15 +10,22 @@ const routes:RouteRecordRaw[] = [
     },
     {
         path:'/login',
+        name:'login',
         component: () => import('../views/login/login.vue')
     },
     {
          path:'/main',
+         name: 'main',
          component: () => import('../views/main/main.vue')
+    },
+    {
+        path:'/:pathMatch(.*)*',
+        component: () => import('../views/not-found/index.vue'),
+        meta:{
+            error: true
+        }
     }
 ]
-
-
 
 
 const router = createRouter({
@@ -28,6 +35,12 @@ const router = createRouter({
 
 
 router.beforeEach((to) => {
+    console.log(to);
+    if(to.meta.error){
+        router.push({
+            path: '/main'
+        })
+    }
     if(to.path !== '/login'){
         const result = getLocalStorage("token")
         if(!result){
@@ -35,6 +48,8 @@ router.beforeEach((to) => {
         }
     }
 })
+
+
 
 
 export default router

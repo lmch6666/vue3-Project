@@ -14,13 +14,15 @@
     import { reactive, ref } from 'vue';
     import type { ElForm } from 'element-plus';
     import {useStore} from 'vuex'
-    
+    import { getLocalStorage } from '../../utils/cache'
     const store = useStore()
     const form = ref<InstanceType<typeof ElForm>>();
     const Refdata = ref()
+    const account = getLocalStorage('xxx1') 
+    const password = getLocalStorage('xxx2') 
     const accountData = reactive({
-        account: '',
-        password: ''
+        account: account || '',
+        password:  password || ''
     })
     const rules = reactive({
         account: [

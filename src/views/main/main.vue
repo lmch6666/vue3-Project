@@ -1,15 +1,17 @@
 <template>
   <div class="main">
     <el-container class="main-container">
-      <el-aside width="200px">
-        <navMenu />
+      <el-aside :width="iscol? '50px' : '200px'">
+        <navMenu :collapse="iscol"/>
       </el-aside>
       <el-container class="content">
         <el-header class="content-header">
           <navHeader @changeIcon="changeIcon"/> 
         </el-header>
         <el-main class="content-body">
-          <router-view></router-view>
+          <div class="page">
+            <router-view></router-view>
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -35,7 +37,7 @@ const openVn = () => {
 };
 
 function changeIcon(value:any) {
-  
+    iscol.value = value
 }
 </script>
 
@@ -90,4 +92,12 @@ function changeIcon(value:any) {
     background-color: #f0f2f5;
   }
 
+  .content-body {
+    height: calc(100% - 48px);
+    padding: 10px;
+  }
+
+  .page {
+      background-color: white;
+  }
 </style>

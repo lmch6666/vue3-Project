@@ -1,4 +1,5 @@
 import { AxiosResponse } from "axios";
+import { type } from "os";
 
 export interface Login {
     token: string
@@ -42,3 +43,17 @@ export interface role {
 export interface Module {
     login: Login
 }
+
+
+export interface AccountPassword {
+    account: string
+    password: string
+}
+
+
+export interface roleinside {
+    id: any,
+    role: role[]
+}
+
+export type roleResult = [roleinside]

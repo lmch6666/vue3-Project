@@ -18,7 +18,18 @@ import {
     ElMenu,
     ElMenuItem,
     ElMenuItemGroup,
-    ElSubMenu
+    ElSubMenu,
+    ElBreadcrumb,
+    ElBreadcrumbItem,
+    ElDropdown,
+    ElDropdownItem,
+    ElDropdownMenu,
+    ElAvatar,
+    ElCol,
+    ElRow,
+    ElDatePicker,
+    ElSelect,
+    ElOption
 } from 'element-plus'
 import { App } from 'vue'
 export default {
@@ -43,5 +54,16 @@ export default {
         app.component(ElMenuItem.name, ElMenuItem)
         app.component(ElMenuItemGroup.name, ElMenuItemGroup)
         app.component(ElSubMenu.name, ElSubMenu)
+        app.component(ElBreadcrumb.name, ElBreadcrumb)
+        app.component(ElBreadcrumbItem.name, ElBreadcrumbItem)
+        app.component(ElDropdown.name, ElDropdown)
+        app.component(ElDropdownItem.name, ElDropdownItem)
+        app.component(ElDropdownMenu.name, ElDropdownMenu)
+        app.component(ElAvatar.name, ElAvatar)
+        app.component(ElCol.name, ElCol)
+        app.component(ElRow.name, ElRow)
+        app.component(ElDatePicker.name, ElDatePicker)
+        app.component(ElSelect.name, ElSelect)
+        app.component(ElOption.name, ElOption)
     }
 }
