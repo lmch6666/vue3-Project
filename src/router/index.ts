@@ -16,7 +16,11 @@ const routes:RouteRecordRaw[] = [
     {
          path:'/main',
          name: 'main',
-         component: () => import('../views/main/main.vue')
+         redirect: '/main/analysis/dashboard',
+         component: () => import('../views/main/main.vue'),
+         meta:{
+             name: '系统总览'
+         }
     },
     {
         path:'/:pathMatch(.*)*',
@@ -35,12 +39,13 @@ const router = createRouter({
 
 
 router.beforeEach((to) => {
-    console.log(to);
-    if(to.meta.error){
-        router.push({
-            path: '/main'
-        })
-    }
+    
+    //刷新空白时, 通过to来获取路径 手动跳转
+    // if(to.meta.error){
+    //     router.push({
+    //         path: '/main'
+    //     })
+    // }
     if(to.path !== '/login'){
         const result = getLocalStorage("token")
         if(!result){

@@ -4,5 +4,8 @@ export default  {
     path: '/main/system/department',
     name: 'department',
     component: department,
-    children:[]
+    children:[],
+    meta:{
+        name: '部门'
+    }
 }

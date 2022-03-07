@@ -5,7 +5,7 @@
       <span class="title" v-if="!collapse">CMS</span>
     </div>
     <el-menu
-      default-active="2"
+      :default-active="jumpPath"
       class="el-menu-vertical"
       :collapse="collapse"
       @open="handleOpen"
@@ -40,19 +40,23 @@
 
 <script setup lang="ts">
 // 动态导入组件1. 使用异步组件函数来import导入 组件  , 或者使用对象来查询
-import { computed, defineAsyncComponent, defineProps } from "vue";
+import { computed, defineAsyncComponent, defineProps, ref } from "vue";
 import { useStore } from "../../store/index";
 import Shop from "./shop.vue";
 import Setting from "./setting.vue";
 import Management from "./management.vue";
 import { useRouter } from "vue-router";
+
+const props = defineProps({
+  collapse: Boolean
+});
 const store = useStore();
 const router = useRouter();
 const list = store.state.login.router;
+const jumpPath = ref('/main/analysis/dashboard')
 
-const props = defineProps({
-  collapse: Boolean,
-});
+jumpPath.value = router.currentRoute.value.fullPath
+
 
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);

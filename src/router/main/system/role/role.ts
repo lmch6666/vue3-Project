@@ -4,5 +4,8 @@ export default  {
     path: '/main/system/role',
     name: 'role',
     component: role,
-    children:[]
+    children:[],
+    meta:{
+        name: '角色'
+    }
 }

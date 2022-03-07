@@ -4,5 +4,8 @@ export default  {
     path: '/main/product/information',
     name: 'information',
     component: information,
-    children:[]
+    children:[],
+    meta:{
+        name: '信息'
+    }
 }

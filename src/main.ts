@@ -8,7 +8,13 @@ import registerComponents from './global/registerComponents'
 import { initStoreData } from './store/index'
 
 
-createApp(App).use(Router).use(Store).use(registerComponents).mount('#app')
+const app = createApp(App).use(Store).use(registerComponents)
 
 initStoreData();
 
+// 动态路由刷新空白两种解决方式
+//  1. 在路由守卫当中拿到路径手动跳转
+//  2. 延迟注册路由
+app.use(Router)
+
+app.mount('#app')

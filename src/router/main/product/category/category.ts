@@ -4,5 +4,8 @@ export default  {
     path: '/main/product/category',
     name: 'category',
     component: category,
-    children:[]
+    children:[],
+    meta:{
+        name: '分类'
+    }
 }

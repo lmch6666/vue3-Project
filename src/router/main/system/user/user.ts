@@ -4,5 +4,8 @@ export default  {
     path: '/main/system/user',
     name: 'user',
     component: user,
-    children:[]
+    children:[],
+    meta:{
+        name: '用户'
+    }
 }

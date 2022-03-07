@@ -19,5 +19,6 @@ export type largeWidth = string
 export interface config {
     formType:Array<formConfigType[]>
     largeWidth?:largeWidth,
-    col?: any
+    col?: any,
+    modelValue?: object
 }

@@ -4,5 +4,8 @@ export default  {
     path: '/main/analysis/dashboard',
     name: 'dashboard',
     component: dashboard,
-    children:[]
+    children:[],
+    meta:{
+        name: '面板'
+    }
 }
