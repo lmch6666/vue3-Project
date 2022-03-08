@@ -27,7 +27,7 @@ const loginR = new AxRequest({
 
 
 const getRole = new AxRequest({
-    baseURL: 'http://localhost:5000/',
+    baseURL:'http://localhost:5000/',
     interceptors: {
         requestInterceptors(config) {
             return config

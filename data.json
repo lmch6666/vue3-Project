@@ -1,28 +1,11 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "getRole":[
+  "getRole": [
     {
       "id": 1,
       "role": [
         {
           "name": "系统总览",
-          "id":38,
+          "id": 38,
           "type": 1,
           "url": "/main/analysis",
           "icon": "Setting",
@@ -30,26 +13,26 @@
             {
               "children": null,
               "name": "核心技术",
-              "id":83,
+              "id": 83,
               "parentId": 38,
-              "sort":106,
+              "sort": 106,
               "type": 2,
-              "url":"/main/analysis/dashboard"
+              "url": "/main/analysis/dashboard"
             },
             {
               "children": null,
               "name": "商品统计",
-              "id":84,
+              "id": 84,
               "parentId": 38,
-              "sort":107,
+              "sort": 107,
               "type": 2,
-              "url":"/main/analysis/overview"
+              "url": "/main/analysis/overview"
             }
           ]
         },
         {
           "name": "系统管理",
-          "id":10,
+          "id": 10,
           "type": 1,
           "url": "/main/system",
           "icon": "Management",
@@ -57,76 +40,76 @@
             {
               "children": null,
               "name": "用户管理",
-              "id":84,
+              "id": 84,
               "parentId": 10,
-              "sort":108,
+              "sort": 108,
               "type": 2,
-              "url":"/main/system/user"
+              "url": "/main/system/user"
             },
             {
               "children": null,
               "name": "部门管理",
-              "id":85,
+              "id": 85,
               "parentId": 10,
-              "sort":109,
+              "sort": 109,
               "type": 2,
-              "url":"/main/system/department"
+              "url": "/main/system/department"
             },
             {
               "children": null,
               "name": "菜单管理",
-              "id":86,
+              "id": 86,
               "parentId": 10,
-              "sort":110,
+              "sort": 110,
               "type": 2,
-              "url":"/main/system/menu"
+              "url": "/main/system/menu"
             },
             {
               "children": null,
               "name": "角色管理",
-              "id":87,
+              "id": 87,
               "parentId": 10,
-              "sort":111,
+              "sort": 111,
               "type": 2,
-              "url":"/main/system/role"
+              "url": "/main/system/role"
             }
           ]
         },
         {
           "name": "商品中心",
-          "id":9,
+          "id": 9,
           "type": 1,
           "url": "/main/product",
-          "icon": "Shop", 
+          "icon": "Shop",
           "children": [
             {
               "children": null,
               "name": "商品类别",
-              "id":88,
+              "id": 88,
               "parentId": 9,
-              "sort":112,
+              "sort": 112,
               "type": 2,
-              "url":"/main/product/category"
+              "url": "/main/product/category"
             },
             {
               "children": null,
               "name": "商品信息",
-              "id":88,
+              "id": 88,
               "parentId": 9,
-              "sort":113,
+              "sort": 113,
               "type": 2,
-              "url":"/main/product/information"
+              "url": "/main/product/information"
             }
           ]
         }
       ]
     },
     {
-      "id" : 2,
+      "id": 2,
       "role": [
         {
           "name": "系统总览",
-          "id":38,
+          "id": 38,
           "type": 1,
           "url": "/main/analysis",
           "icon": "Setting",
@@ -134,26 +117,26 @@
             {
               "children": null,
               "name": "核心技术",
-              "id":83,
+              "id": 83,
               "parentId": 38,
-              "sort":106,
+              "sort": 106,
               "type": 2,
-              "url":"/main/analysis/dashboard"
+              "url": "/main/analysis/dashboard"
             },
             {
               "children": null,
               "name": "商品统计",
-              "id":84,
+              "id": 84,
               "parentId": 38,
-              "sort":107,
+              "sort": 107,
               "type": 2,
-              "url":"/main/analysis/overview"
+              "url": "/main/analysis/overview"
             }
           ]
         },
         {
           "name": "系统管理",
-          "id":10,
+          "id": 10,
           "type": 1,
           "url": "/main/system",
           "icon": "Management",
@@ -161,38 +144,38 @@
             {
               "children": null,
               "name": "用户管理",
-              "id":84,
+              "id": 84,
               "parentId": 10,
-              "sort":108,
+              "sort": 108,
               "type": 2,
-              "url":"/main/system/user"
+              "url": "/main/system/user"
             },
             {
               "children": null,
               "name": "部门管理",
-              "id":85,
+              "id": 85,
               "parentId": 10,
-              "sort":109,
+              "sort": 109,
               "type": 2,
-              "url":"/main/system/department"
+              "url": "/main/system/department"
             },
             {
               "children": null,
               "name": "菜单管理",
-              "id":86,
+              "id": 86,
               "parentId": 10,
-              "sort":110,
+              "sort": 110,
               "type": 2,
-              "url":"/main/system/menu"
+              "url": "/main/system/menu"
             },
             {
               "children": null,
               "name": "角色管理",
-              "id":87,
+              "id": 87,
               "parentId": 10,
-              "sort":111,
+              "sort": 111,
               "type": 2,
-              "url":"/main/system/role"
+              "url": "/main/system/role"
             }
           ]
         }
@@ -203,7 +186,7 @@
       "role": [
         {
           "name": "系统总览",
-          "id":38,
+          "id": 38,
           "type": 1,
           "url": "/main/analysis",
           "icon": "Setting",
@@ -211,51 +194,339 @@
             {
               "children": null,
               "name": "核心技术",
-              "id":83,
+              "id": 83,
               "parentId": 38,
-              "sort":106,
+              "sort": 106,
               "type": 2,
-              "url":"/main/analysis/dashboard"
+              "url": "/main/analysis/dashboard"
             },
             {
               "children": null,
               "name": "商品统计",
-              "id":84,
+              "id": 84,
               "parentId": 38,
-              "sort":107,
+              "sort": 107,
               "type": 2,
-              "url":"/main/analysis/overview"
+              "url": "/main/analysis/overview"
             }
           ]
         },
         {
           "name": "商品中心",
-          "id":9,
+          "id": 9,
           "type": 1,
           "url": "/main/product",
-          "icon": "Shop", 
+          "icon": "Shop",
           "children": [
             {
               "children": null,
               "name": "商品类别",
-              "id":88,
+              "id": 88,
               "parentId": 9,
-              "sort":112,
+              "sort": 112,
               "type": 2,
-              "url":"/main/product/category"
+              "url": "/main/product/category"
             },
             {
               "children": null,
               "name": "商品信息",
-              "id":88,
+              "id": 88,
               "parentId": 9,
-              "sort":113,
+              "sort": 113,
               "type": 2,
-              "url":"/main/product/information"
+              "url": "/main/product/information"
             }
           ]
         }
       ]
+    }
+  ],
+  "userlist": [
+    {
+      "id": "450000197303076674",
+      "name": "Moore",
+      "realname": "林秀兰",
+      "callphone": "18622946386",
+      "enable": "1",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "1991-10-20 PM 19:19:29",
+      "updateAt": "1981-06-13 AM 07:17:22"
+    },
+    {
+      "id": "520000197201027108",
+      "name": "Perez",
+      "realname": "侯艳",
+      "callphone": "18162158557",
+      "enable": "3",
+      "departmentId": "1",
+      "roleId": "1",
+      "createAt": "1971-08-17 AM 02:04:00",
+      "updateAt": "1988-05-18 PM 22:00:23"
+    },
+    {
+      "id": "410000199312204887",
+      "name": "Martinez",
+      "realname": "文涛",
+      "callphone": "18122074643",
+      "enable": "2",
+      "departmentId": "3",
+      "roleId": "1",
+      "createAt": "2012-09-01 AM 08:44:29",
+      "updateAt": "1987-09-08 AM 00:36:34"
+    },
+    {
+      "id": "640000201302111188",
+      "name": "Thomas",
+      "realname": "易艳",
+      "callphone": "19864391842",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "3",
+      "createAt": "1978-01-22 AM 06:09:26",
+      "updateAt": "1993-12-16 AM 07:42:21"
+    },
+    {
+      "id": "610000200609012512",
+      "name": "Hernandez",
+      "realname": "姚刚",
+      "callphone": "18613651892",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "1",
+      "createAt": "2015-01-01 AM 08:16:34",
+      "updateAt": "1998-09-02 AM 03:00:16"
+    },
+    {
+      "id": "520000198308251614",
+      "name": "Thompson",
+      "realname": "曹超",
+      "callphone": "19808637116",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "3",
+      "createAt": "1974-12-16 PM 23:06:18",
+      "updateAt": "1971-11-09 PM 20:12:46"
+    },
+    {
+      "id": "130000199803316528",
+      "name": "Young",
+      "realname": "蒋磊",
+      "callphone": "18190337157",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "2003-05-24 AM 07:59:59",
+      "updateAt": "1984-12-23 PM 19:54:04"
+    },
+    {
+      "id": "150000202006036310",
+      "name": "Thomas",
+      "realname": "吴秀兰",
+      "callphone": "18607894513",
+      "enable": "2",
+      "departmentId": "1",
+      "roleId": "2",
+      "createAt": "1982-04-20 PM 14:31:33",
+      "updateAt": "1994-02-19 PM 21:58:26"
+    },
+    {
+      "id": "990000198306054585",
+      "name": "Allen",
+      "realname": "李洋",
+      "callphone": "18141885957",
+      "enable": "1",
+      "departmentId": "2",
+      "roleId": "3",
+      "createAt": "2010-12-16 AM 03:08:31",
+      "updateAt": "1976-03-16 AM 10:51:47"
+    },
+    {
+      "id": "640000200605097710",
+      "name": "Davis",
+      "realname": "罗杰",
+      "callphone": "18198845630",
+      "enable": "2",
+      "departmentId": "3",
+      "roleId": "1",
+      "createAt": "1993-08-31 PM 13:22:13",
+      "updateAt": "2014-07-09 AM 09:52:26"
+    },
+    {
+      "id": "540000200710252256",
+      "name": "Walker",
+      "realname": "贾平",
+      "callphone": "18654099985",
+      "enable": "3",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "2017-01-17 AM 03:49:36",
+      "updateAt": "2003-11-24 AM 10:38:07"
+    },
+    {
+      "id": "820000201110234638",
+      "name": "Jackson",
+      "realname": "白军",
+      "callphone": "18651678693",
+      "enable": "3",
+      "departmentId": "1",
+      "roleId": "2",
+      "createAt": "1974-09-14 AM 04:53:57",
+      "updateAt": "1971-03-11 AM 11:57:32"
+    },
+    {
+      "id": "460000199705222778",
+      "name": "Taylor",
+      "realname": "武霞",
+      "callphone": "19822646432",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "2010-05-25 AM 07:58:46",
+      "updateAt": "1995-04-21 AM 03:36:45"
+    },
+    {
+      "id": "410000201309133512",
+      "name": "Perez",
+      "realname": "贾涛",
+      "callphone": "18159723218",
+      "enable": "2",
+      "departmentId": "3",
+      "roleId": "2",
+      "createAt": "1996-09-06 PM 19:17:44",
+      "updateAt": "1983-01-27 PM 14:52:21"
+    },
+    {
+      "id": "220000200407016192",
+      "name": "Williams",
+      "realname": "彭霞",
+      "callphone": "18161704828",
+      "enable": "3",
+      "departmentId": "3",
+      "roleId": "2",
+      "createAt": "2013-11-20 AM 07:40:29",
+      "updateAt": "1991-07-14 AM 10:08:01"
+    },
+    {
+      "id": "530000198511112603",
+      "name": "Gonzalez",
+      "realname": "陈磊",
+      "callphone": "18621217278",
+      "enable": "3",
+      "departmentId": "1",
+      "roleId": "1",
+      "createAt": "1980-04-26 PM 18:27:00",
+      "updateAt": "1971-01-18 PM 14:42:23"
+    },
+    {
+      "id": "330000197910235668",
+      "name": "Moore",
+      "realname": "袁平",
+      "callphone": "18184718955",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "2002-09-04 PM 18:32:41",
+      "updateAt": "1986-05-20 AM 05:18:09"
+    },
+    {
+      "id": "37000019801020186X",
+      "name": "Clark",
+      "realname": "万霞",
+      "callphone": "18160264616",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "3",
+      "createAt": "2019-02-08 PM 15:29:49",
+      "updateAt": "2007-09-23 AM 02:11:00"
+    },
+    {
+      "id": "420000198308178820",
+      "name": "Lopez",
+      "realname": "余杰",
+      "callphone": "13278848413",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "1976-08-23 AM 09:23:29",
+      "updateAt": "2006-03-05 PM 20:42:10"
+    },
+    {
+      "id": "530000198608075247",
+      "name": "Robinson",
+      "realname": "薛娟",
+      "callphone": "18164056133",
+      "enable": "1",
+      "departmentId": "1",
+      "roleId": "1",
+      "createAt": "1978-01-07 AM 00:24:49",
+      "updateAt": "2008-06-08 AM 04:47:42"
+    },
+    {
+      "id": "120000200002121476",
+      "name": "Garcia",
+      "realname": "郭霞",
+      "callphone": "18684247147",
+      "enable": "1",
+      "departmentId": "1",
+      "roleId": "3",
+      "createAt": "1974-09-21 PM 22:29:03",
+      "updateAt": "2016-10-20 PM 19:19:40"
+    },
+    {
+      "id": "510000200007077956",
+      "name": "Harris",
+      "realname": "曹芳",
+      "callphone": "18622932872",
+      "enable": "3",
+      "departmentId": "3",
+      "roleId": "1",
+      "createAt": "2009-07-30 AM 07:50:14",
+      "updateAt": "1984-02-11 AM 09:48:18"
+    },
+    {
+      "id": "610000200102051811",
+      "name": "Garcia",
+      "realname": "夏艳",
+      "callphone": "18646142540",
+      "enable": "2",
+      "departmentId": "3",
+      "roleId": "3",
+      "createAt": "1979-09-30 AM 07:34:06",
+      "updateAt": "1987-02-16 PM 18:50:23"
+    },
+    {
+      "id": "44000019841115146X",
+      "name": "Jackson",
+      "realname": "彭超",
+      "callphone": "18640837409",
+      "enable": "3",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "2016-06-18 AM 04:17:11",
+      "updateAt": "1989-03-15 AM 08:53:43"
+    },
+    {
+      "id": "21000020060315702X",
+      "name": "Moore",
+      "realname": "程强",
+      "callphone": "13205457979",
+      "enable": "1",
+      "departmentId": "2",
+      "roleId": "2",
+      "createAt": "1971-02-21 PM 22:38:36",
+      "updateAt": "2020-05-06 AM 11:36:44"
+    },
+    {
+      "id": "220000201702040587",
+      "name": "Lopez",
+      "realname": "龚丽",
+      "callphone": "18178810249",
+      "enable": "2",
+      "departmentId": "2",
+      "roleId": "1",
+      "createAt": "1975-07-31 PM 13:14:13",
+      "updateAt": "2005-11-24 PM 22:43:29"
     }
   ]
 }

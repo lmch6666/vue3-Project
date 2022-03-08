@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="formRef" :model="form" :label-width="labelWidth">
+  <el-form ref="formRef" :model="formdata" :label-width="labelWidth">
     <el-row v-for="(item, index) in formType" :key="index">
       <el-col v-bind="col" v-for="i in item" :key="i.label">
         <template v-if="i.type == 'text'">

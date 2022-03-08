@@ -1,5 +1,6 @@
 import { createStore, useStore as useVuexStore, Store } from "vuex";
 import loginModule from "./login/login";
+import userModule  from "./user/user";
 import { getLocalStorage } from '../utils/cache'
 import {Module} from './login/type'
 const store = createStore({
@@ -7,7 +8,8 @@ const store = createStore({
         pro: '21312'
     },
     modules:{
-        login: loginModule
+        login: loginModule,
+        user: userModule
     }
 })
 

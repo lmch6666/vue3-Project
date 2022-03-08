@@ -29,7 +29,10 @@ import {
     ElRow,
     ElDatePicker,
     ElSelect,
-    ElOption
+    ElOption,
+    ElTable,
+    ElTableColumn,
+    ElTag
 } from 'element-plus'
 import { App } from 'vue'
 export default {
@@ -65,5 +68,8 @@ export default {
         app.component(ElDatePicker.name, ElDatePicker)
         app.component(ElSelect.name, ElSelect)
         app.component(ElOption.name, ElOption)
+        app.component(ElTable.name, ElTable)
+        app.component(ElTableColumn.name, ElTableColumn)
+        app.component(ElTag.name, ElTag)
     }
 }

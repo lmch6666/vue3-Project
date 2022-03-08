@@ -1,17 +1,41 @@
 <template>
   <div>
     <div class="user">
-      <Search :formconfig="formconfig" :form="form"/>
+      <Search :formconfig="formconfig" :form="form" ref="search" />
     </div>
+    <div class="addbtn">
+      <el-row justify="end">
+        <el-col :span="24">
+          <el-button type="primary">新增数据</el-button>
+        </el-col>
+      </el-row>
+    </div>
+    <Mtable :tableData="tableData" :tableconfig="tableconfig">
+      <template #enable="{ row }">
+        <el-tag
+          class="ml-2"
+          :type="
+            row.enable == 1 ? 'success' : row.enable == 2 ? 'danger' : 'warning'
+          "
+        >
+          {{ row.enable == 1 ? "启用" : row.enable == 2 ? "未启用" : "默认" }}
+        </el-tag>
+      </template>
+    </Mtable>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from "vue";
+import { useStore } from "vuex";
 import { config } from "../../../../base-ui/form/type";
 import Search from "../../../../components/search/search.vue";
-
-const form = reactive({
+import { userlist } from "../../../../service/user/index";
+import { Mtable } from "../../../../base-ui/index";
+// 导入配置文件配置
+import { formconfig, tableconfig } from "./user.config";
+const store = useStore();
+let form = reactive({
   id: "",
   username: "",
   truename: "",
@@ -19,69 +43,33 @@ const form = reactive({
   state: "",
   time: "",
 });
+const search = ref();
+const tableData = ref();
+// _page
+store
+  .dispatch("user/getuserlist", {
+    _limit: 10,
+  })
+  .then((item) => {
+    tableData.value = item;
+  });
 
-// 这里可以 提取出单独的文件来配置页面
-const formconfig: config = {
-  formType: [
-    [
-      {
-        type: "text",
-        label: "id",
-        mapname: "id",
-        placeholder: "请输入id",
-      },
-      {
-        type: "text",
-        label: "用户名",
-        mapname: "username",
-        placeholder: "请输入用户名",
-      },
-      {
-        type: "text",
-        label: "真实姓名",
-        mapname: "truename",
-        placeholder: "请输入真实姓名",
-      },
-    ],
-    [
-      {
-        type: "text",
-        label: "电话号码",
-        mapname: "phone",
-        placeholder: "请输入电话号码",
-      },
-      {
-        type: "select",
-        label: "状态",
-        mapname: "state",
-        placeholder: "选择状态",
-        selectOption: [
-          {
-            label: "启用",
-            value: "on",
-          },
-          {
-            label: "禁用",
-            value: "off",
-          },
-          {
-            label: "默认",
-            value: "default",
-          },
-        ],
-      },
-      {
-        type: "datepicker",
-        mapname: "time",
-        label: "日期",
-      },
-    ],
-  ],
-};
+setTimeout(() => {
+  console.log(search.value.userdata);
+}, 0);
 </script>
 
 <style scoped>
 .user {
-  padding: 30px 100px;
+  margin-bottom: 10px;
+}
+.addbtn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.textalign {
+  text-align: center;
 }
 </style>

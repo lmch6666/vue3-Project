@@ -21,7 +21,7 @@ class AxRequest {
     constructor(config: AddAxiosConfig) {
         this.showLoading = false
         text = config.text ?? '正在请求中。。。'
-        this.instance = axios.create(Object.assign(baseConfig, config))
+        this.instance = axios.create({...baseConfig, ...config})
         this.interceptors = config.interceptors
         if (this.interceptors) {
             // 全局拦截器

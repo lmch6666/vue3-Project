@@ -1,5 +1,7 @@
 import { RouteRecordRaw } from 'vue-router'
 
+
+// 首先配置好所有的路由的一个信息 然后将这些文件全部获取将这些对象集中到数组中 然后再将返回的数据与路由数组进行匹配
 export function generate(usermenu: any[]): RouteRecordRaw[] {
     const result: RouteRecordRaw[] = []
     const routers: any[] = []
