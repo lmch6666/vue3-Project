@@ -5,6 +5,8 @@
       :tableconfig="tableconfig"
       @selectchange="handleselectchange"
       :count="count"
+      :isedit="isedit"
+      :isdel="isdel"
     >
       <!-- header插槽 -->
       <template #header>
@@ -53,9 +55,17 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, defineExpose } from "vue";
+import {
+  defineProps,
+  defineEmits,
+  defineExpose,
+  getCurrentInstance,
+} from "vue";
 import { Mtable } from "../../base-ui/index";
+import {usePermission} from '../../hooks/usePermission'
 let removeData = [];
+const instance = getCurrentInstance();
+const $filter = instance?.appContext.config.globalProperties.$filter;
 const props = defineProps({
   tableData: {
     required: true,
@@ -63,6 +73,7 @@ const props = defineProps({
   },
   tableconfig: {
     required: true,
+    type: Array,
     default: () => [],
   },
   showIndex: {
@@ -75,17 +86,21 @@ const props = defineProps({
   },
   count: {
     type: Number,
-    required: true,
   },
+  pagename: {
+    type: String
+  }
 });
+
+const isedit = usePermission(props.pagename!,'update')
+const isdel = usePermission(props.pagename!,'delete')
 
 function handleselectchange(val: any) {
   removeData = val;
 }
-
 // 过滤公共的一些插槽 留下特殊的
 
-const otherslots = props.tableconfig.filter((item: any) => {
+const otherslots: Array<any> = props.tableconfig.filter((item: any) => {
   if (item.slotName == "enable") {
     return false;
   }

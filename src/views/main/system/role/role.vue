@@ -1,14 +1,15 @@
 <template>
   <div>
-    <Search :formconfig="formconfig" />
+    <Search :formconfig="formconfig" :pagename="'system:role'"/>
     <Content
       :tableconfig="tableconfig"
       :tableData="tableData"
       @receive="receiveParams"
       :count="26"
+      :pagename="'system:role'"
     >
       <template #btnposition>
-        <el-button type="danger">批量删除</el-button>
+        <el-button type="danger" v-permission="['system:department:delete','system:user:delete','system:menu:delete', 'system:role:delete','product:category:delete', 'product:information:delete']">批量删除</el-button>
       </template>
     </Content>
   </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="search">
     <Mform v-bind="formconfig" v-model="formdata">
-      <template #btngroup>
+      <template #btngroup v-if="isquery">
         <el-button @click="reset">重置</el-button>
-        <el-button type="primary" @click="search">搜索</el-button>
+        <el-button type="primary" @click="search" >搜索</el-button>
       </template>
     </Mform>
   </div>
@@ -21,6 +21,7 @@ import {
   getCurrentInstance
 } from "vue";
 import { Mform } from "../../base-ui/index";
+import { usePermission } from '../../hooks/usePermission'
 const instance = getCurrentInstance()
 const emits = defineEmits(["receive"]);
 const props = defineProps({
@@ -32,8 +33,11 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  pagename:{
+    type:String
+  }
 });
-
+const isquery = usePermission(props.pagename!,'query')
 const formdata = reactive({ ...props.form });
 
 function reset() {

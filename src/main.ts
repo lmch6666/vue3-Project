@@ -7,8 +7,8 @@ import 'element-plus/dist/index.css'
 import registerComponents from './global/registerComponents'
 import { initStoreData } from './store/index'
 import filter from './global/filter'
-
-const app = createApp(App).use(Store).use(registerComponents)
+import directive from './directive/directives'
+const app = createApp(App).use(Store).use(directive).use(registerComponents)
 
 initStoreData();
 

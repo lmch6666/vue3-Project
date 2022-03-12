@@ -1,5 +1,5 @@
 <template>
-  <Content :tableconfig="tableconfig" :tableData="tableData" :count="51">
+  <Content :tableconfig="tableconfig" :tableData="tableData" :count="51" :pagename="'product:information'">
     <template #imgurl="{ row }">
       <el-image
         style="width: 100px; height: 100px"

@@ -8,6 +8,8 @@ export interface Login {
     code?: string
     userinfo?:any,
     router?:Array<any>
+    permissionlist:[],
+    PermissionRouter:[]
 }
 
 export interface resultType<T = any> {

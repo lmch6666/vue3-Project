@@ -6,6 +6,7 @@
         :form="form"
         ref="search"
         @receive="receiveParams"
+        :pagename="'system:user'"
       />
     </div>
     <Content
@@ -13,10 +14,11 @@
       :tableconfig="tableconfig"
       :count="26"
       ref="content"
+      :pagename="'system:user'"
     >
       <template #btnposition>
-        <el-button type="primary">新增数据</el-button>
-        <el-button type="danger">批量删除</el-button>
+        <el-button type="primary" v-if="iscreate">新增数据</el-button>
+        <el-button type="danger" v-if="isdel">批量删除</el-button>
       </template>
     </Content>
   </div>
@@ -27,6 +29,7 @@ import { ref, reactive, computed, onBeforeMount } from "vue";
 import { useStore } from "vuex";
 import { config } from "../../../../base-ui/form/type";
 import { Search, Content } from "../../../../components/index";
+import { usePermission } from "../../../../hooks/usePermission";
 // 导入配置文件配置
 import { formconfig, tableconfig } from "./user.config";
 const store = useStore();
@@ -42,7 +45,8 @@ let form = reactive({
 const search = ref();
 const tableData = ref();
 const content = ref();
-
+const iscreate = usePermission('system:user',"create")
+const isdel = usePermission('system:user',"delete")
 async function getUserlistDate(pagenum = 1, option: any = {}, limit = 10) {
   let obj: any = {};
   for (const key in option) {

@@ -1,6 +1,6 @@
 
 
-export const tableconfig = [
+export const tableconfig:Array<any> = [
     {
         prop: "name",
         label: "菜单名称",
@@ -28,7 +28,7 @@ export const tableconfig = [
 ]
 
 
-export const tabletreeconfig = {
+export const tabletreeconfig:any = {
     "row-key": "id",
     "tree-props": {
         children: 'children'

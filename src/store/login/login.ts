@@ -1,37 +1,53 @@
 
 import { login, getUserInof, getUserRouter } from '../../service/login/index'
+import { menulist } from '../../service/menu/menu'
 import { Module } from 'vuex'
 import { setLocalStorage } from '../../utils/cache'
+import { generatePermission } from '../../utils/generatePermissios'
 import type { Login, loginResult, AccountPassword } from './type'
 import router from '../../router'
 import { getLocalStorage } from '../../utils/cache'
 import { generate } from '../../utils/generateRouter'
-const loginModule: Module<Login, any> = {
+import { savedata } from '../../utils/reactive'
+function setlocal(str: string, data: any) {
+    setLocalStorage(str, data)
+}
 
+const loginModule: Module<Login, any> = {
     namespaced: true,
     state: {
         token: '',
         userinfo: null,
         phone: '',
-        router: []
+        router: [],
+        permissionlist: [],
+        PermissionRouter:[]
     },
-    // getters: ,
+    getters: {
+        getpermissionlist(state) {
+            return state.permissionlist
+        }
+    },
     actions: {
         async AccountLoginAciton({ commit }, value: AccountPassword) {
             const result = await login(value).catch((error) => error)
             if (result.state == 'success') {
                 const { data: { id, name, token } } = result
                 commit('changeToken', token)
-                setLocalStorage("token", token)
+                setlocal("token", token)
                 // 请求 用户数据
                 const userinfo = await getUserInof(id)
                 commit('changeUserData', userinfo)
-                setLocalStorage("Data", JSON.stringify(userinfo))
+                setlocal("Data", JSON.stringify(userinfo))
                 // 请求 用户的路由权限
                 const userRouter = await getUserRouter(userinfo.type)
+                const permissionlist = await menulist({ id: 1 })
                 commit("changeMenu", userRouter[0].role)
-                setLocalStorage("Menu", JSON.stringify(userRouter[0].role))
-                setLocalStorage("id", JSON.stringify(id))
+                commit('commitPermissionRouter',permissionlist[0].role)
+                const list = generatePermission(permissionlist[0].role)
+                commit("commitPermissionlist", list)
+                setlocal("Menu", JSON.stringify(userRouter[0].role))
+                savedata('permission', list)
                 //跳转
                 router.push('/main')
             } else if (result.state == 'error') {
@@ -54,6 +70,9 @@ const loginModule: Module<Login, any> = {
             if (Menu) {
                 commit("changeMenu", JSON.parse(Menu))
             }
+        },
+        getpermissionlist({ commit }, value) {
+            commit('commitPermissionlist', value)
         }
     },
     mutations: {
@@ -69,8 +88,15 @@ const loginModule: Module<Login, any> = {
             result.forEach((route) => {
                 router.addRoute('main', route)
             })
+        },
+        commitPermissionlist(state, value) {
+            state.permissionlist = value
+        },
+        commitPermissionRouter(state, value){
+            state.PermissionRouter = value
         }
     }
 }
 
 export default loginModule
+

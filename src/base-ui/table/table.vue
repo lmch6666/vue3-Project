@@ -34,8 +34,12 @@
       </template>
       <el-table-column label="操作" width="220" align="center">
         <template #default>
-          <el-button type="text" size="small" @click="edit">编辑</el-button>
-          <el-button type="text" size="small" @click="del">删除</el-button>
+          <el-button v-if="isedit" type="text" size="small" @click="edit"
+            >编辑</el-button
+          >
+          <el-button v-if="isdel" type="text" size="small" @click="del"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -69,17 +73,19 @@ import {
   defineEmits,
   getCurrentInstance,
   inject,
+  PropType,
 } from "vue";
-
 const instance = getCurrentInstance();
 const emit = defineEmits(["selectchange"]);
-defineProps({
+const props = defineProps({
   tableData: {
     required: true,
+    type: Array as PropType<Array<any>>,
     default: () => [],
   },
   tableconfig: {
     required: true,
+    type: Array as PropType<Array<any>>,
     default: () => [],
   },
   showIndex: {
@@ -95,7 +101,17 @@ defineProps({
   },
   isshowfooter: {
     type: Boolean,
-    default: true
+    default: true,
+  },
+  isedit: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  isdel: {
+    type: Boolean,
+    required: true,
+    default: false
   },
 });
 
