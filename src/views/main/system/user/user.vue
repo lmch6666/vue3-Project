@@ -1,62 +1,80 @@
 <template>
   <div>
     <div class="user">
-      <Search :formconfig="formconfig" :form="form" ref="search" />
+      <Search
+        :formconfig="formconfig"
+        :form="form"
+        ref="search"
+        @receive="receiveParams"
+      />
     </div>
-    <div class="addbtn">
-      <el-row justify="end">
-        <el-col :span="24">
-          <el-button type="primary">新增数据</el-button>
-        </el-col>
-      </el-row>
-    </div>
-    <Mtable :tableData="tableData" :tableconfig="tableconfig">
-      <template #enable="{ row }">
-        <el-tag
-          class="ml-2"
-          :type="
-            row.enable == 1 ? 'success' : row.enable == 2 ? 'danger' : 'warning'
-          "
-        >
-          {{ row.enable == 1 ? "启用" : row.enable == 2 ? "未启用" : "默认" }}
-        </el-tag>
+    <Content
+      :tableData="tableData"
+      :tableconfig="tableconfig"
+      :count="26"
+      ref="content"
+    >
+      <template #btnposition>
+        <el-button type="primary">新增数据</el-button>
+        <el-button type="danger">批量删除</el-button>
       </template>
-    </Mtable>
+    </Content>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive, computed, onBeforeMount } from "vue";
 import { useStore } from "vuex";
 import { config } from "../../../../base-ui/form/type";
-import Search from "../../../../components/search/search.vue";
-import { userlist } from "../../../../service/user/index";
-import { Mtable } from "../../../../base-ui/index";
+import { Search, Content } from "../../../../components/index";
 // 导入配置文件配置
 import { formconfig, tableconfig } from "./user.config";
 const store = useStore();
+
 let form = reactive({
   id: "",
-  username: "",
+  name: "",
   truename: "",
-  phone: "",
-  state: "",
+  callphone: "",
+  enable: "",
   time: "",
 });
 const search = ref();
 const tableData = ref();
-// _page
-store
-  .dispatch("user/getuserlist", {
-    _limit: 10,
-  })
-  .then((item) => {
-    tableData.value = item;
-  });
+const content = ref();
 
-setTimeout(() => {
-  console.log(search.value.userdata);
-}, 0);
+async function getUserlistDate(pagenum = 1, option: any = {}, limit = 10) {
+  let obj: any = {};
+  for (const key in option) {
+    if (option[key]) {
+      if (key == "time" && option[key]) {
+        obj["createAt"] = option[key][0];
+        obj["updateAt"] = option[key][1];
+        continue;
+      }
+      obj[key] = option[key];
+    }
+  }
+  const result = await store.dispatch("user/getuserlist", {
+    _page: pagenum,
+    _limit: limit,
+    ...obj,
+  });
+  tableData.value = result;
+}
+
+// _page
+
+onBeforeMount(getUserlistDate);
+
+const count = computed(() => {
+  return store.getters[`user/getUserlist`];
+});
+
+function receiveParams(value: any) {
+  console.log(value);
+  getUserlistDate(undefined, value);
+}
 </script>
 
 <style scoped>

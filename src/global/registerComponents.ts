@@ -32,7 +32,9 @@ import {
     ElOption,
     ElTable,
     ElTableColumn,
-    ElTag
+    ElTag,
+    ElPagination,
+    ElImage
 } from 'element-plus'
 import { App } from 'vue'
 export default {
@@ -71,5 +73,7 @@ export default {
         app.component(ElTable.name, ElTable)
         app.component(ElTableColumn.name, ElTableColumn)
         app.component(ElTag.name, ElTag)
+        app.component(ElPagination.name, ElPagination)
+        app.component(ElImage.name, ElImage)
     }
 }

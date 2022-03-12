@@ -6,7 +6,7 @@ import './style/normalize.css'
 import 'element-plus/dist/index.css'
 import registerComponents from './global/registerComponents'
 import { initStoreData } from './store/index'
-
+import filter from './global/filter'
 
 const app = createApp(App).use(Store).use(registerComponents)
 
@@ -16,5 +16,8 @@ initStoreData();
 //  1. 在路由守卫当中拿到路径手动跳转
 //  2. 延迟注册路由
 app.use(Router)
+
+// app.config.globalProperties定义全局的属性
+filter(app)
 
 app.mount('#app')

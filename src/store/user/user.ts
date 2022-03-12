@@ -16,6 +16,11 @@ const userModule:Module<User,any> = {
             return result
         }
     },
+    getters: {
+        getUserlist(state){
+            return state.userlist
+        }
+    },
     mutations:{
         changeUserlist(state,value){
             state.userlist = value

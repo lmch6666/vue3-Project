@@ -14,7 +14,7 @@ export const formconfig: config = {
             {
                 type: "text",
                 label: "用户名",
-                mapname: "username",
+                mapname: "name",
                 placeholder: "请输入用户名",
             },
             {
@@ -28,26 +28,26 @@ export const formconfig: config = {
             {
                 type: "text",
                 label: "电话号码",
-                mapname: "phone",
+                mapname: "callphone",
                 placeholder: "请输入电话号码",
             },
             {
                 type: "select",
                 label: "状态",
-                mapname: "state",
+                mapname: "enable",
                 placeholder: "选择状态",
                 selectOption: [
                     {
                         label: '启用',
-                        value: 'on'
+                        value: '1'
                     },
                     {
                         label: '禁用',
-                        value: 'off'
+                        value: '2'
                     },
                     {
                         label: '默认',
-                        value: 'default'
+                        value: '3'
                     }
                 ]
 
@@ -59,61 +59,49 @@ export const formconfig: config = {
             },
         ],
     ]
-}  
+}
 
-export const tableconfig = {
-    "id": {
+export const tableconfig = [
+    {
         prop: "id",
         label: "编号",
         width: '200',
         slotName: 'id'
     },
-    "name":{
+    {
         prop: "name",
         label: "用户名",
-        width: '150',
+        width: '200',
         slotName: 'name'
     },
-    "realname":{
+    {
         prop: "realname",
         label: "真实姓名",
-        width: '150',
+        width: '200',
         slotName: 'realname'
     },
-    "callphone":{
+    {
         prop: "callphone",
         label: "电话号",
-        width: '150',
+        width: '200',
         slotName: 'callphone'
     },
-    "enable":{
+    {
         prop: "enable",
         label: "是否可用",
         width: '150',
         slotName: 'enable'
     },
-    "departmentId":{
-        prop: "departmentId",
-        label: "部门ID",
-        width: '150',
-        slotName: 'departmentId'
-    },
-    "roleId":{
-        prop: "roleId",
-        label: "权限",
-        width: '150',
-        slotName: 'roleId'
-    },
-    "createAt":{
+    {
         prop: "createAt",
         label: "创建时间",
-        width: '200',
+        width: '220',
         slotName: 'createAt'
     },
-    "updateAt":{
+    {
         prop: "updateAt",
         label: "更新时间",
-        width: '200',
+        width: '220',
         slotName: 'updateAt'
     }
-}
+]

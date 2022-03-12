@@ -1,8 +1,8 @@
-import AxRequest from "../sealaxios"
-import { userlistDate } from '../type'
+import AxRequest from "../sealaxios";
+import { Menu } from './type'
 
-const user = new AxRequest({
-    baseURL:' http://localhost:5000',
+const menu = new AxRequest({
+    baseURL: ' http://localhost:5000',
     interceptors: {
         requestInterceptors(config) {
             return config
@@ -19,9 +19,10 @@ const user = new AxRequest({
     }
 })
 
-export function userlist(option:any) {
-  return user.get<userlistDate[]>({
-        url:'/userlist',
-        params:option
+
+export function menulist(option: any) {
+    return menu.get({
+        url: '/menulist',
+        params: option
     })
 }

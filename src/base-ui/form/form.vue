@@ -1,11 +1,11 @@
 <template>
-  <el-form ref="formRef" :model="formdata" :label-width="labelWidth">
+  <el-form ref="formRef" :model="modelValue" :label-width="labelWidth">
     <el-row v-for="(item, index) in formType" :key="index">
       <el-col v-bind="col" v-for="i in item" :key="i.label">
         <template v-if="i.type == 'text'">
           <el-form-item :label="i.label">
             <el-input
-              v-model="formdata[i.mapname]"
+              v-model="modelValue[i.mapname]"
               :placeholder="i.placeholder"
             ></el-input>
           </el-form-item>
@@ -13,7 +13,7 @@
         <template v-else-if="i.type == 'select'">
           <el-form-item label="状态">
             <el-select
-              v-model="formdata[i.mapname]"
+              v-model="modelValue[i.mapname]"
               class="m-2"
               placeholder="选择状态"
               size="large"
@@ -27,7 +27,7 @@
         <template v-else-if="i.type == 'datepicker'">
           <el-form-item label="创建时间">
             <el-date-picker
-              v-model="formdata[i.mapname]"
+              v-model="modelValue[i.mapname]"
               type="daterange"
               start-placeholder="开始日期"
               end-placeholder="结束日期"
@@ -39,8 +39,7 @@
       </el-col>
     </el-row>
     <el-row justify="end">
-      <el-button @click="reset">重置</el-button>
-      <el-button type="primary" @click="search">搜索</el-button>
+      <slot name="btngroup"></slot>
     </el-row>
   </el-form>
 </template>
@@ -73,25 +72,19 @@ const props = defineProps({
     required: true,
   },
 });
-const formRef = ref();
-const formdata = ref({ ...props.modelValue });
 
+//  组件v-model 双向绑定  不违背单向数据流的原则
+const formRef = ref({ ...props.modelValue });
 watch(
-  formdata,
-  (newValue) => {
-    emit("update:modelValue", newValue);
-  },
-  {
-    deep: true,
+  () => props.modelValue,
+  (newvalue) => {
+    formRef.value = newvalue;
   }
 );
-
-function reset() {
-
-}
-function search() {
-  
-}
+watch(formRef, (newvalue) => {
+  emit('update:modelValue',newvalue)
+});
+// 也可以使用 model-value  属性结合update:modelvalue自定义时间来使用
 </script>
 
 <style scoped>

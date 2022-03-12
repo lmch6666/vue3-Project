@@ -31,3 +31,12 @@ export interface userlistDate {
     createAt: string,
     updateAt: string
 }
+
+
+export interface rolelistDate {
+    id:string
+    name:string
+    intro: string
+    createAt: string,
+    updateAt: string
+}

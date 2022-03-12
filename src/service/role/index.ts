@@ -1,8 +1,7 @@
-import AxRequest from "../sealaxios"
-import { userlistDate } from '../type'
-
-const user = new AxRequest({
-    baseURL:' http://localhost:5000',
+import AxRequest from '../sealaxios'
+import { rolelistDate } from '../type'
+const role = new AxRequest({
+    baseURL: ' http://localhost:5000',
     interceptors: {
         requestInterceptors(config) {
             return config
@@ -18,10 +17,9 @@ const user = new AxRequest({
         }
     }
 })
-
-export function userlist(option:any) {
-  return user.get<userlistDate[]>({
-        url:'/userlist',
+export function rolelist(option:any) {
+    return role.get<rolelistDate[]>({
+        url: '/rolelist',
         params:option
     })
 }

@@ -12,7 +12,6 @@ export interface formConfigType {
     mapname?:string
 }
 
-
 export type largeWidth = string
 
 
