@@ -44,7 +44,7 @@ function reset() {
   for (const key in formdata) {
     formdata[key] = "";
   }
-  instance?.parent?.setupState.getUserlistDate()
+  instance?.parent?.setupState.receiveParams(formdata)
 }
 
 function search() {

@@ -7,6 +7,8 @@
       :count="count"
       :isedit="isedit"
       :isdel="isdel"
+      @edit="edit"
+      @del="del"
     >
       <!-- header插槽 -->
       <template #header>
@@ -63,9 +65,10 @@ import {
 } from "vue";
 import { Mtable } from "../../base-ui/index";
 import {usePermission} from '../../hooks/usePermission'
-let removeData = [];
 const instance = getCurrentInstance();
 const $filter = instance?.appContext.config.globalProperties.$filter;
+const exposes = instance?.parent?.exposed;
+const emit  = defineEmits(['totaldelete']);
 const props = defineProps({
   tableData: {
     required: true,
@@ -78,14 +81,14 @@ const props = defineProps({
   },
   showIndex: {
     type: Boolean,
-    default: false,
+    default: false
   },
   showcheckbox: {
     type: Boolean,
-    default: false,
+    default: false
   },
   count: {
-    type: Number,
+    type: Number
   },
   pagename: {
     type: String
@@ -96,10 +99,18 @@ const isedit = usePermission(props.pagename!,'update')
 const isdel = usePermission(props.pagename!,'delete')
 
 function handleselectchange(val: any) {
-  removeData = val;
+  emit('totaldelete',val)
 }
-// 过滤公共的一些插槽 留下特殊的
 
+function edit(value:any) {
+  // console.log(value);
+  exposes!.edit(value)
+}
+function del(value:any) {
+  exposes!.del(value)
+}
+
+// 过滤公共的一些插槽 留下特殊的
 const otherslots: Array<any> = props.tableconfig.filter((item: any) => {
   if (item.slotName == "enable") {
     return false;

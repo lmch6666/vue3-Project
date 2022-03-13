@@ -33,11 +33,11 @@
         </el-table-column>
       </template>
       <el-table-column label="操作" width="220" align="center">
-        <template #default>
-          <el-button v-if="isedit" type="text" size="small" @click="edit"
+        <template #default="{row}">
+          <el-button v-if="isedit" type="text" size="small" @click="edit(row)"
             >编辑</el-button
           >
-          <el-button v-if="isdel" type="text" size="small" @click="del"
+          <el-button v-if="isdel" type="text" size="small" @click="del(row)"
             >删除</el-button
           >
         </template>
@@ -75,8 +75,9 @@ import {
   inject,
   PropType,
 } from "vue";
+import type {Component} from './type'
 const instance = getCurrentInstance();
-const emit = defineEmits(["selectchange"]);
+const emit = defineEmits(["selectchange",'edit','del']);
 const props = defineProps({
   tableData: {
     required: true,
@@ -121,40 +122,41 @@ const tabletreeconfig = inject("tabletreeconfig");
 if (tabletreeconfig) {
   treeset.value = tabletreeconfig;
 }
-function edit(value: any) {}
+function edit(value: any) {
+  emit('edit',value)
+}
 
-function del(params: any) {}
+function del(value: any) {
+  emit('del',value.id)
+}
 
 function handleselectchange(value: any) {
   emit("selectchange", value);
 }
 
 function handleCurrentChange(value: any) {
-  console.log("currentpage", value);
   getfatherMethod(value);
 }
 
 function handleSizeChange(value: any) {
-  console.log("sizechange", value);
   pagesize.value = value;
   getfatherMethod();
 }
 
 function handlePrevClick(value: any) {
-  console.log("PrevClick", value);
   getfatherMethod(value);
 }
 
 function handleNextClick(value: any) {
-  console.log("NextClick", value);
   getfatherMethod(value);
 }
 
 function getfatherMethod(value?: number, size?: number) {
   let currentpagenumber = value;
-  const method = instance?.parent?.parent?.setupState?.getUserlistDate;
+  const parents:Component | null | undefined = instance?.parent?.parent;
+  const method = parents?.setupState?.getUserlistDate
   if (method) {
-    return method(currentpagenumber, undefined, pagesize.value);
+    return method(currentpagenumber, pagesize.value);
   }
 }
 </script>

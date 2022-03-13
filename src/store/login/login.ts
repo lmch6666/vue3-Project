@@ -21,7 +21,7 @@ const loginModule: Module<Login, any> = {
         phone: '',
         router: [],
         permissionlist: [],
-        PermissionRouter:[]
+        PermissionRouter: []
     },
     getters: {
         getpermissionlist(state) {
@@ -43,7 +43,8 @@ const loginModule: Module<Login, any> = {
                 const userRouter = await getUserRouter(userinfo.type)
                 const permissionlist = await menulist({ id: 1 })
                 commit("changeMenu", userRouter[0].role)
-                commit('commitPermissionRouter',permissionlist[0].role)
+                commit('commitPermissionRouter', permissionlist[0].role)
+                setlocal("PermissionRouter", permissionlist[0].role)
                 const list = generatePermission(permissionlist[0].role)
                 commit("commitPermissionlist", list)
                 setlocal("Menu", JSON.stringify(userRouter[0].role))
@@ -70,6 +71,12 @@ const loginModule: Module<Login, any> = {
             if (Menu) {
                 commit("changeMenu", JSON.parse(Menu))
             }
+            const PermissionRouter = getLocalStorage("PermissionRouter")
+            if (PermissionRouter) {
+                commit('commitPermissionRouter', PermissionRouter)
+                const list = generatePermission(PermissionRouter)
+                commit("commitPermissionlist", list)
+            }
         },
         getpermissionlist({ commit }, value) {
             commit('commitPermissionlist', value)
@@ -92,7 +99,7 @@ const loginModule: Module<Login, any> = {
         commitPermissionlist(state, value) {
             state.permissionlist = value
         },
-        commitPermissionRouter(state, value){
+        commitPermissionRouter(state, value) {
             state.PermissionRouter = value
         }
     }

@@ -15,70 +15,130 @@
       :count="26"
       ref="content"
       :pagename="'system:user'"
+      @totaldelete="totaldelete"
     >
       <template #btnposition>
-        <el-button type="primary" v-if="iscreate">新增数据</el-button>
+        <el-button
+          type="primary"
+          v-if="iscreate"
+          @click="addData()"
+          >新增数据</el-button>
         <el-button type="danger" v-if="isdel">批量删除</el-button>
       </template>
     </Content>
+    <Dialog
+      v-model="centerDialogVisible"
+      :dialogconfig="dialogconfig"
+      :userdata="userdata"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onBeforeMount } from "vue";
+import { ref, reactive, computed, onBeforeMount, defineExpose } from "vue";
 import { useStore } from "vuex";
-import { config } from "../../../../base-ui/form/type";
-import { Search, Content } from "../../../../components/index";
+import { Search, Content, Dialog } from "../../../../components/index";
 import { usePermission } from "../../../../hooks/usePermission";
+import { Mform } from "../../../../base-ui/index";
 // 导入配置文件配置
-import { formconfig, tableconfig } from "./user.config";
+import { formconfig, tableconfig, dialogconfig } from "./user.config";
 const store = useStore();
-
-let form = reactive({
+const centerDialogVisible = ref(false);
+let form: any = reactive({
   id: "",
   name: "",
-  truename: "",
+  realname: "",
   callphone: "",
   enable: "",
   time: "",
 });
+
+let userdata:any = reactive({
+  name: "",
+  realname: "",
+  callphone: "",
+  enable: "",
+  departmentId: "",
+  role: "",
+});
+
 const search = ref();
+
 const tableData = ref();
+
 const content = ref();
-const iscreate = usePermission('system:user',"create")
-const isdel = usePermission('system:user',"delete")
-async function getUserlistDate(pagenum = 1, option: any = {}, limit = 10) {
+
+const deldata = ref();
+
+const pageconfig = reactive({
+  _page: 1,
+  _limit: 10,
+});
+
+const iscreate = usePermission("system:user", "create");
+
+const isdel = usePermission("system:user", "delete");
+
+async function getUserlistDate(pagenum = 1, limit = 10) {
   let obj: any = {};
-  for (const key in option) {
-    if (option[key]) {
-      if (key == "time" && option[key]) {
-        obj["createAt"] = option[key][0];
-        obj["updateAt"] = option[key][1];
+  for (const key in form) {
+    if (form[key]) {
+      if (key == "time" && form[key]) {
+        obj["createAt"] = form[key][0];
+        obj["updateAt"] = form[key][1];
         continue;
       }
-      obj[key] = option[key];
+      obj[key] = form[key];
     }
   }
+  pageconfig._page = pagenum;
+  pageconfig._limit = limit;
   const result = await store.dispatch("user/getuserlist", {
-    _page: pagenum,
-    _limit: limit,
+    ...pageconfig,
     ...obj,
   });
   tableData.value = result;
 }
 
-// _page
-
 onBeforeMount(getUserlistDate);
 
-const count = computed(() => {
-  return store.getters[`user/getUserlist`];
+function receiveParams(value: any) {
+  for (const key in value) {
+    form[key] = value[key];
+  }
+  getUserlistDate();
+}
+
+function edit(value: any) {
+  centerDialogVisible.value = true
+  for (const key in userdata) {
+      userdata[key] = value[key]
+  }
+  console.log(value);
+}
+
+async function del(id: any) {
+  await store.dispatch("user/deluser", id);
+  getUserlistDate(pageconfig._page, pageconfig._limit);
+}
+
+function totaldelete(value: Array<string>) {
+  if (Array.isArray(value)) {
+    for (const id of value) {
+      del(id);
+    }
+  }
+}
+
+function addData() {
+  centerDialogVisible.value = true
+}
+
+defineExpose({
+  edit,
+  del,
 });
 
-function receiveParams(value: any) {
-  console.log(value);
-  getUserlistDate(undefined, value);
-}
 </script>
 
 <style scoped>

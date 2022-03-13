@@ -243,17 +243,6 @@
   ],
   "userlist": [
     {
-      "id": "450000197303076674",
-      "name": "Moore",
-      "realname": "林秀兰",
-      "callphone": "18622946386",
-      "enable": "1",
-      "departmentId": "2",
-      "roleId": "2",
-      "createAt": "1991-10-20 PM 19:19:29",
-      "updateAt": "1981-06-13 AM 07:17:22"
-    },
-    {
       "id": "520000197201027108",
       "name": "Perez",
       "realname": "侯艳",
@@ -265,72 +254,6 @@
       "updateAt": "1988-05-18 PM 22:00:23"
     },
     {
-      "id": "410000199312204887",
-      "name": "Martinez",
-      "realname": "文涛",
-      "callphone": "18122074643",
-      "enable": "2",
-      "departmentId": "3",
-      "roleId": "1",
-      "createAt": "2012-09-01 AM 08:44:29",
-      "updateAt": "1987-09-08 AM 00:36:34"
-    },
-    {
-      "id": "640000201302111188",
-      "name": "Thomas",
-      "realname": "易艳",
-      "callphone": "19864391842",
-      "enable": "2",
-      "departmentId": "2",
-      "roleId": "3",
-      "createAt": "1978-01-22 AM 06:09:26",
-      "updateAt": "1993-12-16 AM 07:42:21"
-    },
-    {
-      "id": "610000200609012512",
-      "name": "Hernandez",
-      "realname": "姚刚",
-      "callphone": "18613651892",
-      "enable": "2",
-      "departmentId": "2",
-      "roleId": "1",
-      "createAt": "2015-01-01 AM 08:16:34",
-      "updateAt": "1998-09-02 AM 03:00:16"
-    },
-    {
-      "id": "520000198308251614",
-      "name": "Thompson",
-      "realname": "曹超",
-      "callphone": "19808637116",
-      "enable": "2",
-      "departmentId": "2",
-      "roleId": "3",
-      "createAt": "1974-12-16 PM 23:06:18",
-      "updateAt": "1971-11-09 PM 20:12:46"
-    },
-    {
-      "id": "130000199803316528",
-      "name": "Young",
-      "realname": "蒋磊",
-      "callphone": "18190337157",
-      "enable": "2",
-      "departmentId": "2",
-      "roleId": "2",
-      "createAt": "2003-05-24 AM 07:59:59",
-      "updateAt": "1984-12-23 PM 19:54:04"
-    },
-    {
-      "id": "150000202006036310",
-      "name": "Thomas",
-      "realname": "吴秀兰",
-      "callphone": "18607894513",
-      "enable": "2",
-      "departmentId": "1",
-      "roleId": "2",
-      "createAt": "1982-04-20 PM 14:31:33",
-      "updateAt": "1994-02-19 PM 21:58:26"
-    },
-    {
       "id": "990000198306054585",
       "name": "Allen",
       "realname": "李洋",
@@ -340,17 +263,6 @@
       "roleId": "3",
       "createAt": "2010-12-16 AM 03:08:31",
       "updateAt": "1976-03-16 AM 10:51:47"
-    },
-    {
-      "id": "640000200605097710",
-      "name": "Davis",
-      "realname": "罗杰",
-      "callphone": "18198845630",
-      "enable": "2",
-      "departmentId": "3",
-      "roleId": "1",
-      "createAt": "1993-08-31 PM 13:22:13",
-      "updateAt": "2014-07-09 AM 09:52:26"
     },
     {
       "id": "540000200710252256",

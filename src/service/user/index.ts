@@ -25,3 +25,9 @@ export function userlist(option:any) {
         params:option
     })
 }
+
+export function deluser(id:string) {
+    return user.delete<any>({
+        url: `/userlist/${id}`
+    })
+}

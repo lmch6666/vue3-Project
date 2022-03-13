@@ -11,11 +11,11 @@
           </el-form-item>
         </template>
         <template v-else-if="i.type == 'select'">
-          <el-form-item label="状态">
+          <el-form-item :label="i.label">
             <el-select
               v-model="modelValue[i.mapname]"
               class="m-2"
-              placeholder="选择状态"
+              :placeholder="i.placeholder"
               size="large"
             >
               <template v-for="v in i.selectOption">
@@ -84,7 +84,7 @@ watch(
 watch(formRef, (newvalue) => {
   emit('update:modelValue',newvalue)
 });
-// 也可以使用 model-value  属性结合update:modelvalue自定义时间来使用
+// 也可以使用 model-value  属性结合update:modelvalue自定义事件来使用
 </script>
 
 <style scoped>
