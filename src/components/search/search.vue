@@ -38,11 +38,12 @@ const props = defineProps({
   }
 });
 const isquery = usePermission(props.pagename!,'query')
-const formdata = reactive({ ...props.form });
+
+const formdata = reactive({ ...props.form })
 
 function reset() {
   for (const key in formdata) {
-    formdata[key] = "";
+    formdata[key] = null;
   }
   instance?.parent?.setupState.receiveParams(formdata)
 }

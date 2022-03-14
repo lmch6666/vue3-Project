@@ -107,58 +107,60 @@ export const tableconfig = [
 ]
 
 
-export const dialogconfig = [
-    [
-        {
-            type: "text",
-            label: "用户名",
-            mapname: "name",
-            placeholder: "请输入用户名",
-        },
-        {
-            type: "text",
-            label: "真实姓名",
-            mapname: "realname",
-            placeholder: "请输入真实姓名",
-        },
-        {
-            type: "text",
-            label: "电话号码",
-            mapname: "callphone",
-            placeholder: "请输入电话号码",
-        },
-        {
-            type: "select",
-            label: "状态",
-            mapname: "enable",
-            placeholder: "选择状态",
-            selectOption: [
-                {
-                    label: '启用',
-                    value: '1'
-                },
-                {
-                    label: '禁用',
-                    value: '2'
-                },
-                {
-                    label: '默认',
-                    value: '3'
-                }
-            ]
-        },
-        {
-            type: "select",
-            label: "部门",
-            mapname: "department",
-            placeholder: "选择部门",
-        },
-        {
-            type: "select",
-            label: "角色",
-            mapname: "role",
-            placeholder: "选择角色",
-            selectOption:[]
-        }
+export const dialogconfig = {
+    formType: [
+        [
+            {
+                type: "text",
+                label: "用户名",
+                mapname: "name",
+                placeholder: "请输入用户名",
+            },
+            {
+                type: "text",
+                label: "真实姓名",
+                mapname: "realname",
+                placeholder: "请输入真实姓名",
+            },
+            {
+                type: "text",
+                label: "电话号码",
+                mapname: "callphone",
+                placeholder: "请输入电话号码",
+            },
+            {
+                type: "select",
+                label: "状态",
+                mapname: "enable",
+                placeholder: "选择状态",
+                selectOption: [
+                    {
+                        label: '启用',
+                        value: '1'
+                    },
+                    {
+                        label: '禁用',
+                        value: '2'
+                    },
+                    {
+                        label: '默认',
+                        value: '3'
+                    }
+                ]
+            },
+            {
+                type: "select",
+                label: "部门",
+                mapname: "departmentId",
+                placeholder: "选择部门",
+            },
+            {
+                type: "select",
+                label: "角色",
+                mapname: "roleId",
+                placeholder: "选择角色",
+                selectOption: []
+            }
+        ]
     ]
-]
+}

@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onBeforeMount } from "vue";
+import { ref, reactive, computed, onBeforeMount, provide } from "vue";
 import { useStore } from "vuex";
 import { formconfig, tableconfig } from "./role.config";
 import {Search,Content} from "../../../../components/index";
@@ -34,6 +34,7 @@ async function getUserlistDate(pagenum = 1,option: any = {}, limit=  10) {
   });
   tableData.value = result;
 }
+provide("tabletreeconfig", {});
 </script>
 
 <style>

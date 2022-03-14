@@ -29,13 +29,13 @@
     <Dialog
       v-model="centerDialogVisible"
       :dialogconfig="dialogconfig"
-      :userdata="userdata"
+      :user="user"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onBeforeMount, defineExpose } from "vue";
+import { ref, reactive, computed, onBeforeMount, defineExpose, provide } from "vue";
 import { useStore } from "vuex";
 import { Search, Content, Dialog } from "../../../../components/index";
 import { usePermission } from "../../../../hooks/usePermission";
@@ -53,13 +53,13 @@ let form: any = reactive({
   time: "",
 });
 
-let userdata:any = reactive({
+let user:any = reactive({
   name: "",
   realname: "",
   callphone: "",
   enable: "",
   departmentId: "",
-  role: "",
+  roleId: "",
 });
 
 const search = ref();
@@ -111,10 +111,11 @@ function receiveParams(value: any) {
 
 function edit(value: any) {
   centerDialogVisible.value = true
-  for (const key in userdata) {
-      userdata[key] = value[key]
-  }
   console.log(value);
+  // user = value
+  for (const key in user) {
+      user[key] = value[key]
+  }
 }
 
 async function del(id: any) {
@@ -133,6 +134,7 @@ function totaldelete(value: Array<string>) {
 function addData() {
   centerDialogVisible.value = true
 }
+provide("tabletreeconfig", {});
 
 defineExpose({
   edit,

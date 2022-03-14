@@ -1,11 +1,11 @@
 <template>
-  <el-form ref="formRef" :model="modelValue" :label-width="labelWidth">
+  <el-form :model="formRef" :label-width="labelWidth">
     <el-row v-for="(item, index) in formType" :key="index">
       <el-col v-bind="col" v-for="i in item" :key="i.label">
         <template v-if="i.type == 'text'">
           <el-form-item :label="i.label">
             <el-input
-              v-model="modelValue[i.mapname]"
+              v-model="formRef[i.mapname]"
               :placeholder="i.placeholder"
             ></el-input>
           </el-form-item>
@@ -13,7 +13,7 @@
         <template v-else-if="i.type == 'select'">
           <el-form-item :label="i.label">
             <el-select
-              v-model="modelValue[i.mapname]"
+              v-model="formRef[i.mapname]"
               class="m-2"
               :placeholder="i.placeholder"
               size="large"
@@ -27,7 +27,7 @@
         <template v-else-if="i.type == 'datepicker'">
           <el-form-item label="创建时间">
             <el-date-picker
-              v-model="modelValue[i.mapname]"
+              v-model="formRef[i.mapname]"
               type="daterange"
               start-placeholder="开始日期"
               end-placeholder="结束日期"
@@ -75,15 +75,24 @@ const props = defineProps({
 
 //  组件v-model 双向绑定  不违背单向数据流的原则
 const formRef = ref({ ...props.modelValue });
+
 watch(
   () => props.modelValue,
   (newvalue) => {
     formRef.value = newvalue;
+  },
+  { deep: true }
+);
+
+watch(
+  formRef,
+  (newvalue) => {
+    emit("update:modelValue", newvalue);
+  },
+  {
+    deep: true,
   }
 );
-watch(formRef, (newvalue) => {
-  emit('update:modelValue',newvalue)
-});
 // 也可以使用 model-value  属性结合update:modelvalue自定义事件来使用
 </script>
 
