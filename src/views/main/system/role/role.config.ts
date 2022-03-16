@@ -58,3 +58,23 @@ export const tableconfig = [
         slotName: 'updateAt'
     }
 ]
+
+
+export const dialogconfig = {
+    formType: [
+        [
+            {
+                type: "text",
+                label: "角色名",
+                mapname: "name",
+                placeholder: "请输入角色名",
+            },
+            {
+                type: "text",
+                label: "权限",
+                mapname: "intro",
+                placeholder: "请输入权限",
+            }
+        ]
+    ]
+}

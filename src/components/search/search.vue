@@ -39,17 +39,18 @@ const props = defineProps({
 });
 const isquery = usePermission(props.pagename!,'query')
 
-const formdata = reactive({ ...props.form })
+let formdata = ref({ ...props.form })
 
 function reset() {
-  for (const key in formdata) {
-    formdata[key] = null;
+  for (const key in formdata.value) {
+    formdata.value[key] = null;
   }
-  instance?.parent?.setupState.receiveParams(formdata)
+  instance?.parent?.setupState.receiveParams(formdata.value)
 }
 
 function search() {
-  emits('receive', formdata)
+  console.log(formdata);
+  emits('receive', formdata.value)
 }
 
 </script>

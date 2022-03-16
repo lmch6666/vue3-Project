@@ -40,3 +40,22 @@ export interface rolelistDate {
     createAt: string,
     updateAt: string
 }
+
+
+export interface roles {
+    id:string
+    name:string
+}
+
+
+export interface adduser {
+    id:string
+    name: string,
+    realname: string,
+    callphone: string,
+    enable: string,
+    departmentId: string,
+    roleId: string,
+    createAt?:string
+    updateAt?:string
+}

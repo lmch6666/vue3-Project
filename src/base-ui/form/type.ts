@@ -21,3 +21,11 @@ export interface config {
     col?: any,
     modelValue?: object
 }
+
+
+export interface tableconfig {
+    prop: string
+    label: string
+    width: string
+    slotName: string
+}

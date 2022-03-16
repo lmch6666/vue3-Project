@@ -1,4 +1,4 @@
-import { config } from '../../../../base-ui/form/type'
+import { config, tableconfig as tableconfigType } from '../../../../base-ui/form/type'
 
 // 这里 是单独的文件来配置页面
 // user页面的配置文件
@@ -61,7 +61,7 @@ export const formconfig: config = {
     ]
 }
 
-export const tableconfig = [
+export const tableconfig: tableconfigType[] = [
     {
         prop: "id",
         label: "编号",
@@ -107,7 +107,7 @@ export const tableconfig = [
 ]
 
 
-export const dialogconfig = {
+export const dialogconfig: config = {
     formType: [
         [
             {

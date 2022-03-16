@@ -89,8 +89,8 @@ class AxRequest {
         return this.request<T>({ ...config, method: 'DELETE' })
     }
 
-    patch<T = any>(config?: AddAxiosConfig<T>) {
-        return this.request<T>({ ...config, method: 'PATCH' })
+    put<T = any>(config?: AddAxiosConfig<T>) {
+        return this.request<T>({ ...config, method: 'PUT' })
     }
 
 }

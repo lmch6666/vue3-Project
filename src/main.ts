@@ -8,6 +8,7 @@ import registerComponents from './global/registerComponents'
 import { initStoreData } from './store/index'
 import filter from './global/filter'
 import directive from './directive/directives'
+import { dingshiclear } from './utils/cache'
 const app = createApp(App).use(Store).use(directive).use(registerComponents)
 
 initStoreData();
@@ -21,3 +22,4 @@ app.use(Router)
 filter(app)
 
 app.mount('#app')
+dingshiclear(10000000)

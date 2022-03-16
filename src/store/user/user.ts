@@ -1,6 +1,6 @@
 import { Module } from "vuex";
 import type { User } from './type'
-import { userlist, deluser as del } from '../../service/user/index'
+import { userlist, deluser as del, adduser, modifiyuser } from '../../service/user/index'
 
 const userModule: Module<User, any> = {
     namespaced: true,
@@ -18,6 +18,14 @@ const userModule: Module<User, any> = {
         async deluser({ dispatch }, id) {
             const result = await del(id);
             // dispatch('getuserlist')
+            return result
+        },
+        async adduser({ commit }, value: any) {
+            const result = await adduser(value)
+            return result
+        },
+        async modifiyuser({ commit }, value: any) {
+            const result = await modifiyuser(value)
             return result
         }
     },

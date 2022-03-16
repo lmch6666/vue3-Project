@@ -91,12 +91,14 @@ const props = defineProps({
     type: Number
   },
   pagename: {
-    type: String
+    type: String,
+    required: true
   }
 });
 
-const isedit = usePermission(props.pagename!,'update')
-const isdel = usePermission(props.pagename!,'delete')
+const isedit = usePermission(props.pagename!, 'update')
+const isdel = usePermission(props.pagename!, 'delete')
+console.log(isedit, isdel);
 
 function handleselectchange(val: any) {
   emit('totaldelete',val)

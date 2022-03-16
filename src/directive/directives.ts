@@ -4,7 +4,6 @@ const list = ref()
 let isflush: boolean = false
 export default {
   install(app: App) {
-
     app.directive('permission', (el, binding) => {
       if (!isflush) {
         list.value = getdata('permission')
@@ -12,7 +11,6 @@ export default {
       }
       binding.value?.forEach((item: any) => {
         if (!(list.value?.some((i: any) => i == item))) {
-          console.log(12312312);
           el.style.display = 'none'
         }
       });
