@@ -1,0 +1,5 @@
+export { default as PieEchart } from './pieEchart.vue'
+export { default as RoseEchart } from './RoseEchart.vue'
+export { default as LineEchart } from './lineEchart.vue'
+export { default as BarEchart } from './BarEchart.vue'
+export { default as RadarEchart } from './radarEchart.vue'
