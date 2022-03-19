@@ -29,20 +29,17 @@ const props = defineProps({
 
 const optionsConfig = computed(() => {
   return {
-    title: {
-      text: "Basic Radar Chart",
-    },
     legend: {
-      data: ["Allocated Budget", "Actual Spending"],
+      data: ["环比增长", "利润增长"],
     },
     radar: {
       indicator: [
-        { name: "Sales", max: 6500 },
-        { name: "Administration", max: 16000 },
-        { name: "Information Technology", max: 30000 },
-        { name: "Customer Support", max: 38000 },
-        { name: "Development", max: 52000 },
-        { name: "Marketing", max: 25000 },
+        { name: "销售额", max: 6500 },
+        { name: "利润总额", max: 16000 },
+        { name: "支出总额", max: 30000 },
+        { name: "环比增长", max: 38000 },
+        { name: "纯利润", max: 52000 },
+        { name: "净增长", max: 25000 },
       ],
     },
     series: [

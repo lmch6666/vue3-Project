@@ -8,6 +8,8 @@ import productModule from "./product/product";
 import menuModule from './menu/menu'
 import { roles, rolemenu } from '../service/role/index'
 import { departmentlist } from '../service/department/department'
+import DepartmentModule from './department/department'
+import categoryModule from "./category/category";
 const store = createStore({
     state: {
         roles: [],
@@ -35,7 +37,7 @@ const store = createStore({
         commitDepartments(state, value) {
             state.departments = value
         },
-        commitRoleMenulist(state, value){
+        commitRoleMenulist(state, value) {
             state.rolemenulist = value
         }
     },
@@ -44,7 +46,9 @@ const store = createStore({
         user: userModule,
         role: roleMoule,
         product: productModule,
-        menu: menuModule
+        menu: menuModule,
+        category:categoryModule,
+        department: DepartmentModule,
     }
 })
 

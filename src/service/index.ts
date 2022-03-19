@@ -2,6 +2,7 @@ import AxRequest from "./sealaxios"
 
 
 const instance = new AxRequest({
+    baseURL: ' http://localhost:5000',
     interceptors: {
         requestInterceptors(config){
             return config

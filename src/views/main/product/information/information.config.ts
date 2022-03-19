@@ -106,3 +106,54 @@ export const tableconfig = [
         slotName: 'updateAt'
     }
 ]
+
+export const dialogconfig = {
+    formType: [
+        [
+            {
+                type: "text",
+                label: "名称",
+                mapname: "name",
+                placeholder: "请输入名称",
+            },
+            {
+                type: "text",
+                label: "图片url",
+                mapname: "realname",
+                placeholder: "请输入图片url",
+            },
+            {
+                type: "text",
+                label: "原价",
+                mapname: "oldprice",
+                placeholder: "请输入原价",
+            },
+            {
+                type: "text",
+                label: "现价",
+                mapname: "newprice",
+                placeholder: "请输入现价",
+            },
+            {
+                type: "select",
+                label: "状态",
+                mapname: "enable",
+                placeholder: "选择状态",
+                selectOption: [
+                    {
+                        label: '启用',
+                        value: '1'
+                    },
+                    {
+                        label: '禁用',
+                        value: '2'
+                    },
+                    {
+                        label: '默认',
+                        value: '3'
+                    }
+                ]
+            }
+        ]
+    ]
+}

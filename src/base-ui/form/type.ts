@@ -20,6 +20,7 @@ export interface config {
     largeWidth?:largeWidth,
     col?: any,
     modelValue?: object
+    selectOption?: any
 }
 
 

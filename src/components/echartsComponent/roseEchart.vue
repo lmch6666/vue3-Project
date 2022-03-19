@@ -27,13 +27,13 @@ const props = defineProps({
   },
 });
 
+// legend: {
+//   top: "bottom",
+// },
 const optionsConfig = computed(() => {
   return {
-    legend: {
-      top: "bottom",
-    },
     toolbox: {
-      show: true,
+      show: false,
       feature: {
         mark: { show: true },
         dataView: { show: true, readOnly: false },

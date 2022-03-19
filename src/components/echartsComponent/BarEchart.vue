@@ -31,7 +31,7 @@ const optionsConfig = computed(() => {
   return {
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: ["玩具", "食品", "水果", "五金", "粮食", "杂物", "生活用品"],
     },
     yAxis: {
       type: "value",

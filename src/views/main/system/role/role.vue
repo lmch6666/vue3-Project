@@ -9,7 +9,6 @@
     <Content
       :tableconfig="tableconfig"
       :tableData="tableData"
-      @receive="receiveParams"
       :count="26"
       :pagename="'system:role'"
     >
@@ -115,6 +114,7 @@ async function getUserlistDate(pagenum = 1, limit = 10) {
   const result = await store.dispatch("role/getrolelist", {
     _page: pagenum,
     _limit: limit,
+    ...obj,
   });
   tableData.value = result;
 }
@@ -125,25 +125,23 @@ function del(id: any) {
 
 function adduser(value: any, isedit: boolean) {
   let tree = unref(rolemenulist);
-  // console.log(value);
   const result = getDate(value, isedit);
   if (isedit) {
     store.dispatch("role/modifiy", result);
   } else {
     result.id = Math.ceil(Math.random() * 100000 + 10000).toString();
-    
-    
-      const menulist = formatmenulist(tree, checkedlist.value);
-      result.menuList = menulist
-      store.dispatch("role/add", result);
+
+    const menulist = formatmenulist(tree, checkedlist.value);
+    result.menuList = menulist;
+    store.dispatch("role/add", result);
   }
 }
 
 function handleCheckChange(d1: any, d2: any) {
   const { checkedKeys, halfCheckedKeys } = d2;
-  const arr:any = [...halfCheckedKeys, ...checkedKeys].sort();
+  const arr: any = [...halfCheckedKeys, ...checkedKeys].sort();
   console.log(arr);
-  checkedlist.value = arr
+  checkedlist.value = arr;
 }
 
 provide("tabletreeconfig", {});

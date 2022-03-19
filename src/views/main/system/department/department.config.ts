@@ -12,3 +12,23 @@ export const tableconfig = [
     slotName: 'name'
   }
 ]
+
+
+export const dialogconfig = {
+  formType: [
+    [
+      {
+        type: "text",
+        label: "id",
+        mapname: "id",
+        placeholder: "请输入Id",
+      },
+      {
+        type: "select",
+        label: "部门名",
+        mapname: "name",
+        placeholder: "请输入部门名称",
+      }
+    ]
+  ]
+}

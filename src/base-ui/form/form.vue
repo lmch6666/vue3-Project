@@ -45,7 +45,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, defineProps, defineEmits, PropType, watch } from "vue";
+import {
+  ref,
+  reactive,
+  defineProps,
+  defineEmits,
+  PropType,
+  watch,
+  watchEffect,
+} from "vue";
 import type { formConfigType } from "./type";
 const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
@@ -76,25 +84,24 @@ const props = defineProps({
 //  组件v-model 双向绑定  不违背单向数据流的原则
 const formRef = ref({ ...props.modelValue });
 
-watch(
-  () => props.modelValue,
-  (newvalue) => {
-    console.log(newvalue);
-    formRef.value = newvalue;
-  },
-  { deep: true }
-);
 
 watch(
   formRef,
   (newvalue) => {
-    console.log(newvalue);
     emit("update:modelValue", newvalue);
   },
   {
-    deep: true
+    deep: true,
   }
 );
+
+// watchEffect(() => {
+//   if (formRef.value) {
+//     console.log(formRef.value);
+//     emit("update:modelValue", formRef.value);
+//   }
+// });
+
 // 也可以使用 model-value  属性结合update:modelvalue自定义事件来使用
 </script>
 

@@ -49,7 +49,7 @@ function reset() {
 }
 
 function search() {
-  console.log(formdata);
+  console.log(formdata.value);
   emits('receive', formdata.value)
 }
 

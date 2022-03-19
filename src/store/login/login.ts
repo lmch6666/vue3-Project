@@ -65,7 +65,7 @@ const loginModule: Module<Login, any> = {
             }
             const Data = getLocalStorage("Data")
             if (Data) {
-                commit("changeUserData", Data)
+                commit("changeUserData", JSON.parse(Data))
             }
             const Menu = getLocalStorage("Menu")
             if (Menu) {

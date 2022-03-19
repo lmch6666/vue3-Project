@@ -27,3 +27,29 @@ export function departmentlist() {
   })
 }
 
+
+export function delDepartment(id: any) {
+  return department.delete({
+    url: `/departmentlist/${id}`
+  })
+}
+
+export function updateDepartment(value: any) {
+  return department.put({
+    url: `/departmentlist/${value.id}`,
+    data: value,
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+}
+
+export function addDepartment(value: any) {
+  return department.post({
+    url: '/departmentlist',
+    data: value,
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+}

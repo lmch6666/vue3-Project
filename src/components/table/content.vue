@@ -106,10 +106,10 @@ function handleselectchange(val: any) {
 
 function edit(value:any) {
   // console.log(value);
-  exposes!.edit(value)
+  exposes?.edit(value)
 }
 function del(value:any) {
-  exposes!.del(value)
+  exposes?.del(value)
 }
 
 // 过滤公共的一些插槽 留下特殊的
