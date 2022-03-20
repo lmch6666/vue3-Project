@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import { Echarts } from "../index";
 import { ref, reactive, defineProps, computed } from "vue";
+import { EChartsOption } from "echarts";
 
 const props = defineProps({
   title: String,
@@ -44,8 +45,8 @@ const optionsConfig = computed(() => {
         areaStyle: {},
       },
     ],
-  };
-});
+  } as EChartsOption;
+}) as unknown as EChartsOption;
 </script>
 
 <style>

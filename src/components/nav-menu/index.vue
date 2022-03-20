@@ -48,15 +48,14 @@ import Management from "./management.vue";
 import { useRouter } from "vue-router";
 
 const props = defineProps({
-  collapse: Boolean
+  collapse: Boolean,
 });
 const store = useStore();
 const router = useRouter();
 const list = store.state.login.router;
-const jumpPath = ref('/main/analysis/dashboard')
+const jumpPath = ref("/main/analysis/dashboard");
 
-jumpPath.value = router.currentRoute.value.fullPath
-
+jumpPath.value = router.currentRoute.value.fullPath;
 
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
@@ -66,7 +65,7 @@ const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
 
-const iconlist = {
+const iconlist: any = {
   Shop: Shop,
   Setting: Setting,
   Management: Management,
@@ -78,7 +77,7 @@ const routerList = computed(() => {
 
 function handleclick(key: any) {
   router.push({
-    path: key.index ?? '/not-found'
+    path: key.index ?? "/not-found",
   });
 }
 </script>

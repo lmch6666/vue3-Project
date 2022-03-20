@@ -33,23 +33,24 @@ import { ref, getCurrentInstance } from "vue";
 import Account from "./account.vue";
 import Phone from "./phone.vue";
 import { setLocalStorage, removeLocalStorage } from "../../utils/cache";
+import { ElForm } from "element-plus";
 
 let instance = getCurrentInstance();
 let isRemember = ref(false);
 let tabName = ref("account");
-let account = ref<InstanceType<typeof Account>>();
-let phone = ref<InstanceType<typeof Phone>>();
+let account:any = ref<InstanceType<typeof Account>>();
+let phone:any = ref<InstanceType<typeof Phone>>();
 const submit = () => {
   if (tabName.value == "account") {
-    account.value.formValidata();
+    account.value?.formValidata();
     if (isRemember.value) {
-      setLocalStorage("xxx1", account.value.accountData.account);
-      setLocalStorage("xxx2", account.value.accountData.password);
+      setLocalStorage("xxx1", account?.value?.accountData.account);
+      setLocalStorage("xxx2", account?.value?.accountData.password);
     } else {
       removeLocalStorage(account.value.accountData.account);
     }
   } else if (tabName.value == "phone") {
-    phone.value.formValidata();
+    phone?.value?.formValidata();
   }
 };
 

@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { Echarts } from "../index";
 import { ref, reactive, defineProps, computed } from "vue";
-
+import type { EChartsOption } from "echarts";
 const props = defineProps({
   title: String,
   width: {
@@ -46,11 +46,13 @@ const optionsConfig = computed(() => {
       {
         name: "Budget vs spending",
         type: "radar",
-        data: props.optiondata
+        data: props.optiondata,
       },
     ],
-  };
-});
+  } as EChartsOption;
+}) as unknown as EChartsOption;
+
+ 
 </script>
 
 <style>

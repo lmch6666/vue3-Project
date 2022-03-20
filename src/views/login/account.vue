@@ -62,7 +62,7 @@
             // defineExpose(login)
         defineExpose({
             formValidata,
-            accountData
+            accountData,
         })
 </script>
 <style>

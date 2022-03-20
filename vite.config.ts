@@ -5,6 +5,11 @@ const path = require('path')
 export default defineConfig({
   mode: 'development',
   base: './',
+  build:{
+    outDir: 'project',
+    cssCodeSplit: true,
+    sourcemap: true,
+  },
   resolve: {
     alias: {
       '@': path.resolve('src')

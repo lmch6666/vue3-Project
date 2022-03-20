@@ -17,6 +17,7 @@ import {
   defineExpose,
   withDefaults,
   watchEffect,
+  ComputedRef,
 } from "vue";
 import useEcharts from "../../hooks/useEcharts";
 import type { EChartsOption } from "echarts";

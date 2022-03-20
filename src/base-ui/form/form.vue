@@ -5,7 +5,7 @@
         <template v-if="i.type == 'text'">
           <el-form-item :label="i.label">
             <el-input
-              v-model="formRef[i.mapname]"
+              v-model="formRef[i.mapname!]"
               :placeholder="i.placeholder"
             ></el-input>
           </el-form-item>
@@ -13,7 +13,7 @@
         <template v-else-if="i.type == 'select'">
           <el-form-item :label="i.label">
             <el-select
-              v-model="formRef[i.mapname]"
+              v-model="formRef[i.mapname!]"
               class="m-2"
               :placeholder="i.placeholder"
               size="large"
@@ -27,7 +27,7 @@
         <template v-else-if="i.type == 'datepicker'">
           <el-form-item label="创建时间">
             <el-date-picker
-              v-model="formRef[i.mapname]"
+              v-model="formRef[i.mapname!]"
               type="daterange"
               start-placeholder="开始日期"
               end-placeholder="结束日期"
