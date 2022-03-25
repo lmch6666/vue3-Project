@@ -36,7 +36,8 @@ import {
     ElPagination,
     ElImage,
     ElDialog,
-    ElTree
+    ElTree,
+    ElUpload,
 } from 'element-plus'
 import { App } from 'vue'
 export default {
@@ -79,5 +80,6 @@ export default {
         app.component(ElImage.name, ElImage)
         app.component(ElDialog.name, ElDialog)
         app.component(ElTree.name, ElTree)
+        app.component(ElUpload.name, ElUpload)
     }
 }

@@ -8,6 +8,13 @@
           <span>还剩{{ lefttime }}小时就到明天辣 你准备好了吗</span>
         </div>
       </template>
+
+      <el-upload class="upload-demo" :on-change="selectFile" drag action="http://localhost:3000/upload">
+        <el-icon class="el-icon--upload"></el-icon> 
+        <div class="el-upload__text">
+          Drop file here or <em>click to upload</em>
+        </div>
+      </el-upload>
     </el-card>
   </div>
 </template>
@@ -15,7 +22,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
-
+import { uploadFunction } from '../../../../service/upload'
 const store = useStore();
 const userdata = computed(() => {
   return store.state.login.userinfo;
@@ -50,6 +57,7 @@ function gettormorr(i: any, j: any, k: any) {
   let seconds = Math.floor(s1 / 1000); // 转化为 具体秒
   return `${hours}时${minutes}分${seconds}秒`;
 }
+
 </script>
 
 <style scoped>

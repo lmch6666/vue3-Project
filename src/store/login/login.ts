@@ -41,7 +41,7 @@ const loginModule: Module<Login, any> = {
                 setlocal("Data", JSON.stringify(userinfo))
                 // 请求 用户的路由权限
                 const userRouter = await getUserRouter(userinfo.type)
-                const permissionlist = await menulist({ id: 1 })
+                const permissionlist = await menulist({ id: id })
                 commit("changeMenu", userRouter[0].role)
                 commit('commitPermissionRouter', permissionlist[0].role)
                 setlocal("PermissionRouter", permissionlist[0].role)
